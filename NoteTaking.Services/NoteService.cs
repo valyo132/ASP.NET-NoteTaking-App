@@ -27,13 +27,29 @@ namespace NoteTaking.Services
 
         public void Delete(int? id)
         {
-            var note = _context.Notes.Find(id);
+            Note note = _context.Notes.Find(id);
             _context.Notes.Remove(note);
+            _context.SaveChanges();
+        }
+
+        public void Edit(EditNoteInputViewModel obj)
+        {
+            var note = _context.Notes.Find(obj.Id);
+            note.Title = obj.Title;
+            note.Text = obj.Text;
+            _context.Notes.Update(note);
             _context.SaveChanges();
         }
 
         public IList<Note> GetAllNotes()
             => _context.Notes.ToList();
+
+        public EditNoteInputViewModel GetNoteViewModel(int? id)
+        {
+            var obj = _context.Notes.Find(id);
+            var noteViewModel = _mapper.Map<EditNoteInputViewModel>(obj);
+            return noteViewModel;
+        }
 
         IList<NoteAllViewModel> INoteService.ProjectNotes(IList<Note> notes)
         {

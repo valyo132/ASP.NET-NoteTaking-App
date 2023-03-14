@@ -51,6 +51,30 @@ namespace NoteTaking.Web.Controllers
             return RedirectToAction("All", "Home");
         }
 
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var obj = _noteService.GetNoteViewModel(id);
+            return View(obj);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EditNoteInputViewModel note)
+        {
+            if (ModelState.IsValid)
+            {
+                _noteService.Edit(note);
+                return RedirectToAction("All", "Home");
+            }
+
+            return View(note);
+        }
+
         public IActionResult Privacy()
         {
             return View();

@@ -3,6 +3,10 @@
     height:600px;
 }
 
+.all-notes-system{
+    margin-top:30px;
+}
+
 .note-system-body {
     height: 600px;
     display: flex;

@@ -9,6 +9,10 @@ namespace NoteTaking.Services.Interfaces
 
         void Delete(int? id);
 
+        void Edit(EditNoteInputViewModel obj);
+
+        EditNoteInputViewModel GetNoteViewModel(int? id);
+
         IList<Note> GetAllNotes();
 
         IList<NoteAllViewModel> ProjectNotes(IList<Note> notes);

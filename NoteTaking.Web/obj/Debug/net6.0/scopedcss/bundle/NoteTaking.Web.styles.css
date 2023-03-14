@@ -1,0 +1,49 @@
+/* _content/NoteTaking.Web/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-fyrfvo6zzd] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-fyrfvo6zzd] {
+  color: #0077cc;
+}
+
+.btn-primary[b-fyrfvo6zzd] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-fyrfvo6zzd], .nav-pills .show > .nav-link[b-fyrfvo6zzd] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-fyrfvo6zzd] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-fyrfvo6zzd] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-fyrfvo6zzd] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-fyrfvo6zzd] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-fyrfvo6zzd] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}

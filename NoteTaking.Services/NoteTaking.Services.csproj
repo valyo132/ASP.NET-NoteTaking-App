@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NoteTaking.Data.Models\NoteTaking.Data.Models.csproj" />
+    <ProjectReference Include="..\NoteTaking.Data\NoteTaking.Data.csproj" />
+    <ProjectReference Include="..\NoteTaking.Web.ViewModels\NoteTaking.Web.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>

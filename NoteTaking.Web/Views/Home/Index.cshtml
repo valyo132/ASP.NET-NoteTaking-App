@@ -1,0 +1,36 @@
+﻿@using NoteTaking.Web.ViewModels;
+@model NoteInputViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="note-system-body">
+    <form method="post">
+        <div class="note-system">
+            <div class="title-input">
+                <label asp-for="Title" style="display:block" class="title-input">Title</label>
+                <input asp-action="Index" asp-controller="Home" asp-for="Title" class="title-input" />
+                <br />
+                <span asp-validation-for="Title" style="color:red"></span>
+            </div>
+            <div class="text-input">
+                <label asp-for="Text" style="display:block">Text</label>
+                <textarea asp-action="Index" asp-controller="Home" asp-for="Text" class="text-area"></textarea>
+                <br />
+                <span asp-validation-for="Text" style="color:red"></span>
+            </div>
+            <br />
+            <div class="note-system-buttons">
+                <input type="submit" asp-action="Index" asp-controller="Home" value="Create" class="btn btn-primary" />
+                <button type="submit" formnovalidate asp-action="All" asp-controller="Home" value="View notes" class="btn btn-secondary">View notelist</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+

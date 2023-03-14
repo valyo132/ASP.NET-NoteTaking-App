@@ -1,0 +1,38 @@
+﻿@using NoteTaking.Web.ViewModels;
+@model IList<NoteAllViewModel>
+@{
+    ViewData["Title"] = "All";
+}
+
+<form>
+    <input type="submit" class="create-button" asp-action="Index" asp-controller="Home" value="Go back" />
+</form>
+<br />
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th width="300px"> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var note in Model)
+        {
+            <tr>
+                <td>@note.Id</td>
+                <td>@note.Title</td>
+                <td>@note.Date</td>
+                <td>
+                    <div class="buttons-grid">
+                        <a class="btn btn-danger" type="submit" asp-action="Delete" asp-controller="Home" asp-route-id="@note.Id"> <i class="bi bi-trash-fill"></i> Delete</a>
+                        <a class="btn btn-warning" type="submit" asp-action="Delete" asp-controller="Home">Edit</a>
+                        <a class="btn btn-info" type="submit" asp-action="Delete" asp-controller="Home">Details</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

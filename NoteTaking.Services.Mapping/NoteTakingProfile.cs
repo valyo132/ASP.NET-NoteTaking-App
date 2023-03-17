@@ -15,6 +15,8 @@ namespace NoteTaking.Services.Mapping
             CreateMap<DeleteNoteViewModel, Note>();
 
             CreateMap<Note, EditNoteInputViewModel>();
+
+            CreateMap<Note, DetailsNoteViewModel>();
         }
     }
 }

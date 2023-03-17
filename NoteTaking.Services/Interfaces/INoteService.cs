@@ -11,7 +11,7 @@ namespace NoteTaking.Services.Interfaces
 
         void Edit(EditNoteInputViewModel obj);
 
-        EditNoteInputViewModel GetNoteViewModel(int? id);
+        T GetNoteViewModel<T>(int? id);
 
         IList<Note> GetAllNotes();
 

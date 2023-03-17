@@ -26,8 +26,9 @@ namespace NoteTaking.Web.Controllers
             if (ModelState.IsValid)
             {
                 _noteService.Create(obj);
+                TempData["success"] = "The note has been created!";
 
-                return RedirectToAction("All", "Home");
+                return RedirectToAction("Index", "Home");
             }
 
             return View(obj);
@@ -47,6 +48,7 @@ namespace NoteTaking.Web.Controllers
                 return NotFound();
 
             _noteService.Delete(id);
+            TempData["success"] = "The note has been deleted!";
 
             return RedirectToAction("All", "Home");
         }
@@ -59,7 +61,7 @@ namespace NoteTaking.Web.Controllers
                 return NotFound();
             }
 
-            var obj = _noteService.GetNoteViewModel(id);
+            var obj = _noteService.GetNoteViewModel<EditNoteInputViewModel>(id);
             return View(obj);
         }
 
@@ -69,10 +71,23 @@ namespace NoteTaking.Web.Controllers
             if (ModelState.IsValid)
             {
                 _noteService.Edit(note);
+                TempData["success"] = "The note has been updated!";
+
                 return RedirectToAction("All", "Home");
             }
 
             return View(note);
+        }
+
+        [HttpGet]
+        public IActionResult Details(int? id)
+        {
+            if (id == null)
+                return NotFound();
+
+            var obj = _noteService.GetNoteViewModel<DetailsNoteViewModel>(id);
+
+            return View(obj);
         }
 
         public IActionResult Privacy()

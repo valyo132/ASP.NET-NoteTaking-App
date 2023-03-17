@@ -1,0 +1,28 @@
+﻿@using NoteTaking.Web.ViewModels;
+@model DetailsNoteViewModel
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="note-system-body">
+    <form method="post">
+        <div class="note-system">
+            <div class="title-input">
+                <label asp-for="Date" style="display:block" class="title-input">Date</label>
+                <input disabled asp-action="Index" asp-controller="Home" asp-for="Date" class="title-input"/>
+            </div>
+            <div class="title-input">
+                <label asp-for="Title" style="display:block" class="title-input">Title</label>
+                <input disabled asp-action="Index" asp-controller="Home" asp-for="Title" class="title-input" />
+            </div>
+            <div class="text-input">
+                <label asp-for="Text" style="display:block">Text</label>
+                <textarea disabled asp-action="Index" asp-controller="Home" asp-for="Text" class="text-area"></textarea>
+            </div>
+            <br />
+            <div class="note-system-buttons">
+                <button type="submit" formnovalidate asp-action="All" asp-controller="Home" class="btn btn-secondary">Back to list</button>
+            </div>
+        </div>
+    </form>
+</div>
+

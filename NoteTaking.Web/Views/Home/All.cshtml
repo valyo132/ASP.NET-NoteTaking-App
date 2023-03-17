@@ -4,6 +4,8 @@
     ViewData["Title"] = "All";
 }
 
+<partial name="_Notifications" />
+
 <br />
 <div class="all-notes-system">
     <form>
@@ -36,7 +38,7 @@
                             <div class="buttons-grid">
                                 <a class="btn btn-danger" type="submit" asp-action="Delete" asp-controller="Home" asp-route-id="@Model[i].Id"> <i class="bi bi-trash-fill"></i> Delete</a>
                                 <a class="btn btn-warning" type="submit" asp-action="Edit" asp-controller="Home" asp-route-id="@Model[i].Id">Edit</a>
-                                <a class="btn btn-info" type="submit" asp-action="Delete" asp-controller="Home">Details</a>
+                                <a class="btn btn-info" type="submit" asp-action="Details" asp-controller="Home" asp-route-id="@Model[i].Id">Details</a>
                             </div>
                         </td>
                     </tr>

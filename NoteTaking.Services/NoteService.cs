@@ -44,10 +44,10 @@ namespace NoteTaking.Services
         public IList<Note> GetAllNotes()
             => _context.Notes.ToList();
 
-        public EditNoteInputViewModel GetNoteViewModel(int? id)
+        public T GetNoteViewModel<T>(int? id)
         {
             var obj = _context.Notes.Find(id);
-            var noteViewModel = _mapper.Map<EditNoteInputViewModel>(obj);
+            var noteViewModel = _mapper.Map<T>(obj);
             return noteViewModel;
         }
 

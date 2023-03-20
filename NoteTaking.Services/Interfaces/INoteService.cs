@@ -11,10 +11,13 @@ namespace NoteTaking.Services.Interfaces
 
         void Edit(EditNoteInputViewModel obj);
 
+        List<Note> Sort(string sortOption, List<Note> notes);
+
         T GetNoteViewModel<T>(int? id);
 
         IList<Note> GetAllNotes();
 
-        IList<NoteAllViewModel> ProjectNotes(IList<Note> notes);
+        List<NoteAllViewModel> ProjectNotesForPrint(List<Note> notes);
+
     }
 }

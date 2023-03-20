@@ -10,9 +10,12 @@ namespace NoteTaking.Web.Controllers
     {
         private readonly INoteService _noteService;
 
+        public string _sortOption = "";
+
         public HomeController(INoteService noteService)
         {
             _noteService = noteService;
+            _sortOption = "None";
         }
 
         public IActionResult Index()
@@ -34,10 +37,17 @@ namespace NoteTaking.Web.Controllers
             return View(obj);
         }
 
-        public IActionResult All()
+        public IActionResult All(string? sortOption)
         {
             var allNotes = _noteService.GetAllNotes();
-            var notesToPrint = _noteService.ProjectNotes(allNotes);
+
+            if (sortOption != "None" && sortOption != null)
+            {
+                _sortOption = sortOption;
+                allNotes = _noteService.Sort(_sortOption, allNotes.ToList());
+            }
+
+            var notesToPrint = _noteService.ProjectNotesForPrint(allNotes.ToList());
 
             return View(notesToPrint);
         }

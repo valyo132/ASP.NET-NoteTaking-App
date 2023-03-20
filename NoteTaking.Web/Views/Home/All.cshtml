@@ -1,5 +1,5 @@
 ﻿@using NoteTaking.Web.ViewModels;
-@model IList<NoteAllViewModel>
+@model List<NoteAllViewModel>
 @{
     ViewData["Title"] = "All";
 }
@@ -8,9 +8,19 @@
 
 <br />
 <div class="all-notes-system">
-    <form>
+    <form style="display:inline-block">
         <input type="submit" class="create-button" asp-action="Index" asp-controller="Home" value="Go back" />
     </form>
+    <form method="get" asp-action="All" asp-controller="Home" style="display:inline-block">
+        <label for="sort">Sort by:</label>
+        <select id="sortOption" name="sortOption" onchange="this.form.submit()" onchange="this.value = this.getAttribute('data-value');">
+            <option value="None">None</option>
+            <option value="Latest">Latest</option>
+            <option value="Oldest">Oldest</option>
+            <option value="Title">Title</option>
+        </select>
+    </form>
+    <br />
     <br />
     @if (Model.Any())
     {
@@ -24,7 +34,7 @@
                 </tr>
             </thead>
             <tbody>
-                @for (int i = 0; i < Model.Count; i++)
+                @for (int i = 0; i < Model.Count(); i++)
                 {
                     <tr>
                         <td>
@@ -51,3 +61,9 @@
         <h2>Oops... You don't have any notes</h2>
     }
 </div>
+
+@*<script>
+    // set the selected option based on the SortOption property
+    var sortOption = "Select";
+    document.getElementById("sortOption").value = sortOption;
+</script>*@

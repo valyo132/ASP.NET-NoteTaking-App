@@ -5,7 +5,7 @@ namespace NoteTaking.Web.ViewModels
     public class NoteInputViewModel
     {
         [Required]
-        [StringLength(20, MinimumLength = 1, ErrorMessage = "Title must contain at least 1 charachter")]
+        [StringLength(50, MinimumLength = 1, ErrorMessage = "Title must contain at least 1 charachter")]
         public string Title { get; set; } = null!;
 
         [Required]

@@ -51,11 +51,48 @@ namespace NoteTaking.Services
             return noteViewModel;
         }
 
-        IList<NoteAllViewModel> INoteService.ProjectNotes(IList<Note> notes)
+        public List<NoteAllViewModel> ProjectNotesForPrint(List<Note> notes)
         {
-            return _context.Notes
-                .ProjectTo<NoteAllViewModel>(_mapper.ConfigurationProvider)
-                .ToList();
+            List<NoteAllViewModel> notesToPrint = new List<NoteAllViewModel>();
+
+            foreach (var note in notes)
+            {
+                NoteAllViewModel noteToPrint = new NoteAllViewModel()
+                {
+                    Title = note.Title,
+                    Date = note.Date,
+                    Id = note.Id
+                };
+
+                notesToPrint.Add(noteToPrint);
+            }
+
+            return notesToPrint;
+        }
+
+        public List<Note> Sort(string sortOption, List<Note> notes)
+        {
+            if (sortOption == "Latest")
+            {
+                return notes
+                    .AsEnumerable()
+                    .OrderByDescending(n => n.Date)
+                    .ToList();
+            }
+            else if (sortOption == "Oldest")
+            {
+                return notes
+                    .AsEnumerable()
+                    .OrderBy(n => n.Date)
+                    .ToList();
+            }
+            else
+            {
+                return notes
+                    .AsEnumerable()
+                    .OrderBy(n => n.Title)
+                    .ToList();
+            }
         }
     }
 }

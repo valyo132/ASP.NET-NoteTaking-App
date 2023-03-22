@@ -3605,6 +3605,16 @@
           "bin/placeholder/NoteTaking.Services.Mapping.dll": {}
         }
       },
+      "NoteTaking.Web.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/NoteTaking.Web.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/NoteTaking.Web.Common.dll": {}
+        }
+      },
       "NoteTaking.Web.ViewModels/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -10118,6 +10128,11 @@
       "path": "../NoteTaking.Services.Mapping/NoteTaking.Services.Mapping.csproj",
       "msbuildProject": "../NoteTaking.Services.Mapping/NoteTaking.Services.Mapping.csproj"
     },
+    "NoteTaking.Web.Common/1.0.0": {
+      "type": "project",
+      "path": "../NoteTaking.Web.Common/NoteTaking.Web.Common.csproj",
+      "msbuildProject": "../NoteTaking.Web.Common/NoteTaking.Web.Common.csproj"
+    },
     "NoteTaking.Web.ViewModels/1.0.0": {
       "type": "project",
       "path": "../NoteTaking.Web.ViewModels/NoteTaking.Web.ViewModels.csproj",
@@ -10131,7 +10146,8 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.13",
       "NoteTaking.Data >= 1.0.0",
       "NoteTaking.Services >= 1.0.0",
-      "NoteTaking.Services.Mapping >= 1.0.0"
+      "NoteTaking.Services.Mapping >= 1.0.0",
+      "NoteTaking.Web.Common >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -10169,6 +10185,9 @@
             },
             "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Services\\NoteTaking.Services.csproj": {
               "projectPath": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Services\\NoteTaking.Services.csproj"
+            },
+            "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web.Common\\NoteTaking.Web.Common.csproj": {
+              "projectPath": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web.Common\\NoteTaking.Web.Common.csproj"
             }
           }
         }

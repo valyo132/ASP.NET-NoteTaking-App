@@ -19,6 +19,7 @@
     <ProjectReference Include="..\NoteTaking.Data\NoteTaking.Data.csproj" />
     <ProjectReference Include="..\NoteTaking.Services.Mapping\NoteTaking.Services.Mapping.csproj" />
     <ProjectReference Include="..\NoteTaking.Services\NoteTaking.Services.csproj" />
+    <ProjectReference Include="..\NoteTaking.Web.Common\NoteTaking.Web.Common.csproj" />
   </ItemGroup>
 
 </Project>

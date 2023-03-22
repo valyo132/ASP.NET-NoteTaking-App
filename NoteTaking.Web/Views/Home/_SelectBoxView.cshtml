@@ -1,0 +1,11 @@
+﻿<form method="get" asp-action="All" asp-controller="Home" style="display:inline-block">
+    <div class="custom-select" style="width:200px; ">
+        <label for="sort">Sort by:</label>
+        <select id="sortOption" name="sortOption" onchange="this.form.submit()">
+            <option value="None">None</option>
+            <option value="Latest">Latest</option>
+            <option value="Oldest">Oldest</option>
+            <option value="Title">Title</option>
+        </select>
+    </div>
+</form>

@@ -13,7 +13,8 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.13",
           "NoteTaking.Data": "1.0.0",
           "NoteTaking.Services": "1.0.0",
-          "NoteTaking.Services.Mapping": "1.0.0"
+          "NoteTaking.Services.Mapping": "1.0.0",
+          "NoteTaking.Web.Common": "1.0.0"
         },
         "runtime": {
           "NoteTaking.Web.dll": {}
@@ -2308,6 +2309,11 @@
           "NoteTaking.Services.Mapping.dll": {}
         }
       },
+      "NoteTaking.Web.Common/1.0.0": {
+        "runtime": {
+          "NoteTaking.Web.Common.dll": {}
+        }
+      },
       "NoteTaking.Web.ViewModels/1.0.0": {
         "runtime": {
           "NoteTaking.Web.ViewModels.dll": {}
@@ -3548,6 +3554,11 @@
       "sha512": ""
     },
     "NoteTaking.Services.Mapping/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NoteTaking.Web.Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

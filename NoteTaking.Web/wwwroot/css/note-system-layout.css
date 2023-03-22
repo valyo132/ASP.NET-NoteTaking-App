@@ -65,3 +65,9 @@
     display:flex;
     justify-content:space-evenly;
 }
+
+.custom-select{
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 15px;
+}

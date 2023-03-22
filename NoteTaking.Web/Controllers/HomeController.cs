@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NoteTaking.Services.Interfaces;
+using NoteTaking.Web.Common;
 using NoteTaking.Web.Models;
 using NoteTaking.Web.ViewModels;
 using System.Diagnostics;
@@ -10,12 +11,9 @@ namespace NoteTaking.Web.Controllers
     {
         private readonly INoteService _noteService;
 
-        public string _sortOption = "";
-
         public HomeController(INoteService noteService)
         {
             _noteService = noteService;
-            _sortOption = "None";
         }
 
         public IActionResult Index()
@@ -41,11 +39,10 @@ namespace NoteTaking.Web.Controllers
         {
             var allNotes = _noteService.GetAllNotes();
 
-            if (sortOption != "None" && sortOption != null)
-            {
-                _sortOption = sortOption;
-                allNotes = _noteService.Sort(_sortOption, allNotes.ToList());
-            }
+            if (sortOption != null && sortOption != "None")
+                SelectSortBoxInput._sortOption = sortOption;
+
+            allNotes = _noteService.Sort(SelectSortBoxInput._sortOption, allNotes.ToList());
 
             var notesToPrint = _noteService.ProjectNotesForPrint(allNotes.ToList());
 

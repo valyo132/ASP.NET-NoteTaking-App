@@ -86,12 +86,16 @@ namespace NoteTaking.Services
                     .OrderBy(n => n.Date)
                     .ToList();
             }
-            else
+            else if (sortOption == "Title")
             {
                 return notes
                     .AsEnumerable()
                     .OrderBy(n => n.Title)
                     .ToList();
+            }
+            else
+            {
+                return notes;
             }
         }
     }

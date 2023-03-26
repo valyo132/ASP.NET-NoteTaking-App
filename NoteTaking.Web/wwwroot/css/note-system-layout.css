@@ -1,6 +1,8 @@
 ﻿body {
     /*position:relative;*/
-    height:600px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
 }
 
 .all-notes-system{
@@ -45,11 +47,11 @@
 .create-button{
     background-color:royalblue;
     color:white;
-    width:70px;
-    height:30px;
+    width:80px;
+    height:35px;
 
     border: 0;
-    border-radius:5px;
+    border-radius:10px;
 }
 
 .view-all-button {
@@ -66,8 +68,17 @@
     justify-content:space-evenly;
 }
 
-.custom-select{
-    background-color: lightgray;
-    padding: 10px;
-    border-radius: 15px;
+.custom-select {
+    margin-left: 10px;
+    background-color: #ced4da;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    border-radius: 25px;
+}
+
+.note-system-top{
+    display: flex;
+    justify-content: space-between;
 }

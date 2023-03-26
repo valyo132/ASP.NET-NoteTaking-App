@@ -9,21 +9,22 @@
 
 <br />
 <div class="all-notes-system">
-    <form style="display:inline-block">
-        <input type="submit" class="create-button" asp-action="Index" asp-controller="Home" value="Go back" />
-    </form>
-    <form method="get" asp-action="All" asp-controller="Home" style="display:inline-block">
-        <div class="custom-select">
-            <select id="sortOption" name="sortOption" onchange="this.form.submit()">
-                <option value="None">Select sort</option>
-                <option value="Latest">Latest</option>
-                <option value="Oldest">Oldest</option>
-                <option value="Title">Title</option>
-            </select>
-            <label>Sorted by: @SelectSortBoxInput._sortOption</label>
-        </div>
-    </form>
-    <br />
+    <div class="note-system-top">
+        <form style="display:inline-block">
+            <input type="submit" class="create-button" asp-action="Index" asp-controller="Home" value="Go back" />
+        </form>
+        <form method="get" asp-action="All" asp-controller="Home" style="display:inline-block">
+            <div class="custom-select">
+                <select id="sortOption" name="sortOption" onchange="this.form.submit()">
+                    <option value="None">Select sort</option>
+                    <option value="Latest">Latest</option>
+                    <option value="Oldest">Oldest</option>
+                    <option value="Title">Title</option>
+                </select>
+                <label>Sorted by: @SelectSortBoxInput._sortOption</label>
+            </div>
+        </form>
+    </div>
     <br />
     @if (Model.Any())
     {

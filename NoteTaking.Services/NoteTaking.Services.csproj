@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\NoteTaking.Data.Common\NoteTaking.Data.Common.csproj" />
     <ProjectReference Include="..\NoteTaking.Data.Models\NoteTaking.Data.Models.csproj" />
     <ProjectReference Include="..\NoteTaking.Data\NoteTaking.Data.csproj" />
     <ProjectReference Include="..\NoteTaking.Web.ViewModels\NoteTaking.Web.ViewModels.csproj" />

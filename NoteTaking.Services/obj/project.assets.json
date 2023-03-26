@@ -768,6 +768,21 @@
           "bin/placeholder/NoteTaking.Data.dll": {}
         }
       },
+      "NoteTaking.Data.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "NoteTaking.Data": "1.0.0",
+          "NoteTaking.Data.Models": "1.0.0",
+          "NoteTaking.Services.Mapping": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/NoteTaking.Data.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/NoteTaking.Data.Common.dll": {}
+        }
+      },
       "NoteTaking.Data.Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -779,6 +794,21 @@
         },
         "runtime": {
           "bin/placeholder/NoteTaking.Data.Models.dll": {}
+        }
+      },
+      "NoteTaking.Services.Mapping/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "NoteTaking.Data.Models": "1.0.0",
+          "NoteTaking.Web.ViewModels": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/NoteTaking.Services.Mapping.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/NoteTaking.Services.Mapping.dll": {}
         }
       },
       "NoteTaking.Web.ViewModels/1.0.0": {
@@ -1977,10 +2007,20 @@
       "path": "../NoteTaking.Data/NoteTaking.Data.csproj",
       "msbuildProject": "../NoteTaking.Data/NoteTaking.Data.csproj"
     },
+    "NoteTaking.Data.Common/1.0.0": {
+      "type": "project",
+      "path": "../NoteTaking.Data.Common/NoteTaking.Data.Common.csproj",
+      "msbuildProject": "../NoteTaking.Data.Common/NoteTaking.Data.Common.csproj"
+    },
     "NoteTaking.Data.Models/1.0.0": {
       "type": "project",
       "path": "../NoteTaking.Data.Models/NoteTaking.Data.Models.csproj",
       "msbuildProject": "../NoteTaking.Data.Models/NoteTaking.Data.Models.csproj"
+    },
+    "NoteTaking.Services.Mapping/1.0.0": {
+      "type": "project",
+      "path": "../NoteTaking.Services.Mapping/NoteTaking.Services.Mapping.csproj",
+      "msbuildProject": "../NoteTaking.Services.Mapping/NoteTaking.Services.Mapping.csproj"
     },
     "NoteTaking.Web.ViewModels/1.0.0": {
       "type": "project",
@@ -1992,6 +2032,7 @@
     "net6.0": [
       "AutoMapper >= 12.0.1",
       "NoteTaking.Data >= 1.0.0",
+      "NoteTaking.Data.Common >= 1.0.0",
       "NoteTaking.Data.Models >= 1.0.0",
       "NoteTaking.Web.ViewModels >= 1.0.0"
     ]
@@ -2023,6 +2064,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Data.Common\\NoteTaking.Data.Common.csproj": {
+              "projectPath": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Data.Common\\NoteTaking.Data.Common.csproj"
+            },
             "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Data.Models\\NoteTaking.Data.Models.csproj": {
               "projectPath": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Data.Models\\NoteTaking.Data.Models.csproj"
             },

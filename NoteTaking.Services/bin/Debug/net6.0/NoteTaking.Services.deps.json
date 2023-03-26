@@ -10,6 +10,7 @@
         "dependencies": {
           "AutoMapper": "12.0.1",
           "NoteTaking.Data": "1.0.0",
+          "NoteTaking.Data.Common": "1.0.0",
           "NoteTaking.Data.Models": "1.0.0",
           "NoteTaking.Web.ViewModels": "1.0.0"
         },
@@ -479,12 +480,32 @@
           "NoteTaking.Data.dll": {}
         }
       },
+      "NoteTaking.Data.Common/1.0.0": {
+        "dependencies": {
+          "NoteTaking.Data": "1.0.0",
+          "NoteTaking.Data.Models": "1.0.0",
+          "NoteTaking.Services.Mapping": "1.0.0"
+        },
+        "runtime": {
+          "NoteTaking.Data.Common.dll": {}
+        }
+      },
       "NoteTaking.Data.Models/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "6.0.14"
         },
         "runtime": {
           "NoteTaking.Data.Models.dll": {}
+        }
+      },
+      "NoteTaking.Services.Mapping/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "NoteTaking.Data.Models": "1.0.0",
+          "NoteTaking.Web.ViewModels": "1.0.0"
+        },
+        "runtime": {
+          "NoteTaking.Services.Mapping.dll": {}
         }
       },
       "NoteTaking.Web.ViewModels/1.0.0": {
@@ -792,7 +813,17 @@
       "serviceable": false,
       "sha512": ""
     },
+    "NoteTaking.Data.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "NoteTaking.Data.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "NoteTaking.Services.Mapping/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

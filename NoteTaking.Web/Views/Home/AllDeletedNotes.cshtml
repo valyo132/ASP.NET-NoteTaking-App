@@ -1,0 +1,55 @@
+﻿@using NoteTaking.Web.Common;
+@using NoteTaking.Web.ViewModels;
+@model List<NoteAllViewModel>
+@{
+    ViewData["Title"] = "AllDeletedNotes";
+}
+
+<partial name="_Notifications" />
+
+<br />
+<div class="all-notes-system">
+    <div class="note-system-top">
+        <form style="display:inline-block">
+            <input type="submit" class="create-button" asp-action="All" asp-controller="Home" value="Go back" />
+        </form>
+    </div>
+    <br />
+    @if (Model.Any())
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th width="300px"> </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    <tr>
+                        <td>
+                            @(
+                                i + 1
+                                )
+                        </td>
+                        <td>@Model[i].Title</td>
+                        <td>@Model[i].Date</td>
+                        <td>
+                            <div class="buttons-grid">
+                                <a class="btn btn-danger" type="submit" asp-action="DeletePermanently" asp-controller="Home" asp-route-id="@Model[i].Id"> <i class="bi bi-trash"></i> Delete</a>
+                                <a class="btn btn-primary" type="submit" asp-action="AllDeletedNotes" asp-controller="Home" asp-route-id="@Model[i].Id"> <i class="bi bi-arrow-counterclockwise"></i> Restore</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h2>Oops... You don't have any notes</h2>
+    }
+</div>

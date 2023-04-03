@@ -4,6 +4,7 @@ using NoteTaking.Web.Common;
 using NoteTaking.Web.Models;
 using NoteTaking.Web.ViewModels;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 
 namespace NoteTaking.Web.Controllers
 {
@@ -49,6 +50,22 @@ namespace NoteTaking.Web.Controllers
             return View(notesToPrint);
         }
 
+        public IActionResult AllDeletedNotes(int? id)
+        {
+            if (id != null)
+            {
+                // Restore
+                _noteService.Restore(id);
+
+                TempData["success"] = "The note has been restored!";
+            }
+
+            var deletedNotes = _noteService.GetAllDeletedNotes();
+            var notesToPrint = _noteService.ProjectNotesForPrint(deletedNotes.ToList());
+
+            return View(notesToPrint);
+        }
+
         public IActionResult Delete(int? id)
         {
             if (id == null)
@@ -58,6 +75,17 @@ namespace NoteTaking.Web.Controllers
             TempData["success"] = "The note has been deleted!";
 
             return RedirectToAction("All", "Home");
+        }
+
+        public IActionResult DeletePermanently(int? id)
+        {
+            if (id == null)
+                return NotFound();
+
+            _noteService.DeletePermanently(id);
+            TempData["success"] = "The note has been deleted!";
+
+            return RedirectToAction("AllDeletedNotes", "Home");
         }
 
         [HttpGet]

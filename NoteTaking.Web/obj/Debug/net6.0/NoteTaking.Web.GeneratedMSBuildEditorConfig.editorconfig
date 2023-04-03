@@ -20,6 +20,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBbGwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/ASP.NET-NoteTaking-App/NoteTaking.Web/Views/Home/AllDeletedNotes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBbGxEZWxldGVkTm90ZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/ASP.NET-NoteTaking-App/NoteTaking.Web/Views/Home/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

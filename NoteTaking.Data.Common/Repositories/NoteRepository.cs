@@ -26,7 +26,14 @@ namespace NoteTaking.Data.Common.Repositories
         public void Delete(int? id)
         {
             Note note = _context.Notes.Find(id);
-            _context.Notes.Remove(note);
+            note.IsDeleted = true;
+            _context.SaveChanges();
+        }
+
+        public void DeletePermanently(int? id)
+        {
+            Note noteToDelete = _context.Notes.Find(id);
+            _context.Notes.Remove(noteToDelete);
             _context.SaveChanges();
         }
 
@@ -39,7 +46,17 @@ namespace NoteTaking.Data.Common.Repositories
             _context.SaveChanges();
         }
 
+        public void Restore(int? id)
+        {
+            var noteToRestore = _context.Notes.Find(id);
+            noteToRestore.IsDeleted = false;
+            _context.SaveChanges();
+        }
+
+        public IList<Note> GetAllDeletedNotes()
+             => _context.Notes.Where(n => n.IsDeleted == true).ToList();
+
         public IList<Note> GetAllNotes()
-            => _context.Notes.ToList();
+            => _context.Notes.Where(n => n.IsDeleted == false).ToList();
     }
 }

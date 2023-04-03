@@ -15,6 +15,8 @@ namespace NoteTaking.Data.Models
         [StringLength(int.MaxValue, MinimumLength = 1, ErrorMessage = "Body text must be at least one charachter long")]
         public string Text { get; set; } = null!;
 
+        public bool IsDeleted { get; set; } = false;
+
         public DateTime Date { get; set; } = DateTime.Now;
     }
 }

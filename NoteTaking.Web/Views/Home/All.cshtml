@@ -50,9 +50,9 @@
                         <td>@Model[i].Date</td>
                         <td>
                             <div class="buttons-grid">
-                                <a class="btn btn-danger" type="submit" asp-action="Delete" asp-controller="Home" asp-route-id="@Model[i].Id"> <i class="bi bi-trash-fill"></i> Delete</a>
-                                <a class="btn btn-warning" type="submit" asp-action="Edit" asp-controller="Home" asp-route-id="@Model[i].Id">Edit</a>
-                                <a class="btn btn-info" type="submit" asp-action="Details" asp-controller="Home" asp-route-id="@Model[i].Id">Details</a>
+                                <a class="btn btn-danger" type="submit" asp-action="Delete" asp-controller="Home" asp-route-id="@Model[i].Id"> <i class="bi bi-trash"></i> Delete</a>
+                                <a class="btn btn-warning" style="margin-left:10px; margin-right:10px" type="submit" asp-action="Edit" asp-controller="Home" asp-route-id="@Model[i].Id"> <i class="bi bi-pen"></i> Edit</a>
+                                <a class="btn btn-info" type="submit" asp-action="Details" asp-controller="Home" asp-route-id="@Model[i].Id"> <i class="bi bi-info-circle"></i> Details</a>
                             </div>
                         </td>
                     </tr>
@@ -64,6 +64,11 @@
     {
         <h2>Oops... You don't have any notes</h2>
     }
+    <form>
+        <div>
+            <input type="submit" value="View deleted notes" class="btn btn-info" asp-action="AllDeletedNotes" asp-controller="Home" />
+        </div>
+    </form>
 </div>
 
 @*<script>

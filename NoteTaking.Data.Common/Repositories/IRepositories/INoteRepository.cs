@@ -9,8 +9,13 @@ namespace NoteTaking.Data.Common.Repositories.IRepositories
 
         void Delete(int? id);
 
+        void DeletePermanently(int? id);
+
         void Edit(EditNoteInputViewModel obj);
 
+        void Restore(int? id);
+
         IList<Note> GetAllNotes();
+        IList<Note> GetAllDeletedNotes();
     }
 }

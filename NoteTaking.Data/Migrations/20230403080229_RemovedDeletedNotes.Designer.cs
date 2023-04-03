@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NoteTaking.Data;
 
@@ -11,9 +12,10 @@ using NoteTaking.Data;
 namespace NoteTaking.Data.Migrations
 {
     [DbContext(typeof(NoteTakingContext))]
-    partial class NoteTakingContextModelSnapshot : ModelSnapshot
+    [Migration("20230403080229_RemovedDeletedNotes")]
+    partial class RemovedDeletedNotes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,9 +34,6 @@ namespace NoteTaking.Data.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Text")
                         .IsRequired()

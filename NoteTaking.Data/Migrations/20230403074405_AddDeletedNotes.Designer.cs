@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NoteTaking.Data;
 
@@ -11,9 +12,10 @@ using NoteTaking.Data;
 namespace NoteTaking.Data.Migrations
 {
     [DbContext(typeof(NoteTakingContext))]
-    partial class NoteTakingContextModelSnapshot : ModelSnapshot
+    [Migration("20230403074405_AddDeletedNotes")]
+    partial class AddDeletedNotes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,6 +23,27 @@ namespace NoteTaking.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("NoteTaking.Data.Models.DeletedNote", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("DateDeleted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("NoteId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NoteId");
+
+                    b.ToTable("DeletedNotes");
+                });
 
             modelBuilder.Entity("NoteTaking.Data.Models.Note", b =>
                 {
@@ -32,9 +55,6 @@ namespace NoteTaking.Data.Migrations
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Text")
                         .IsRequired()
@@ -49,6 +69,17 @@ namespace NoteTaking.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Notes");
+                });
+
+            modelBuilder.Entity("NoteTaking.Data.Models.DeletedNote", b =>
+                {
+                    b.HasOne("NoteTaking.Data.Models.Note", "Note")
+                        .WithMany()
+                        .HasForeignKey("NoteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Note");
                 });
 #pragma warning restore 612, 618
         }

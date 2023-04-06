@@ -6,11 +6,12 @@ namespace NoteTaking.Services.Interfaces
 {
     public interface INoteService : INoteRepository
     {
-        List<Note> Sort(string sortOption, List<Note> notes);
+        List<NoteAllViewModel> Sort(string sortOption, List<NoteAllViewModel> notes);
 
         T GetNoteViewModel<T>(int? id);
 
         List<NoteAllViewModel> ProjectNotesForPrint(List<Note> notes);
 
+        List<NoteAllViewModel> SearchNotesByTitle(string? value);
     }
 }

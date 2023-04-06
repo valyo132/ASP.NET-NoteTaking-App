@@ -3624,6 +3624,9 @@
       "NoteTaking.Web.Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "NoteTaking.Web.ViewModels": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/NoteTaking.Web.Common.dll": {}
         },

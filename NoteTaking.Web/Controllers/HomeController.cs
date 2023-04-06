@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using NoteTaking.Services.Interfaces;
 using NoteTaking.Web.Common;
 using NoteTaking.Web.Models;
@@ -38,16 +39,25 @@ namespace NoteTaking.Web.Controllers
 
         public IActionResult All(string? sortOption)
         {
-            var allNotes = _noteService.GetAllNotes();
+            var notes = new List<NoteAllViewModel>();
+
+            if (SearchIndicator.isSearching)
+            {
+                string searchOperation = SearchIndicator.searchCondition;
+                notes = _noteService.SearchNotesByTitle(searchOperation);
+            }
+            else
+            {
+                var allNotes = _noteService.GetAllNotes();
+                notes = _noteService.ProjectNotesForPrint(allNotes.ToList());
+            }
 
             if (sortOption != null && sortOption != "None")
                 SelectSortBoxInput._sortOption = sortOption;
 
-            allNotes = _noteService.Sort(SelectSortBoxInput._sortOption, allNotes.ToList());
+            notes = _noteService.Sort(SelectSortBoxInput._sortOption, notes.ToList());
 
-            var notesToPrint = _noteService.ProjectNotesForPrint(allNotes.ToList());
-
-            return View(notesToPrint);
+            return View(notes);
         }
 
         public IActionResult AllDeletedNotes(int? id)
@@ -123,6 +133,20 @@ namespace NoteTaking.Web.Controllers
             var obj = _noteService.GetNoteViewModel<DetailsNoteViewModel>(id);
 
             return View(obj);
+        }
+
+        public IActionResult Search(string? value, string? flag)
+        {
+            if (flag == "Show all")
+            {
+                SearchIndicator.isSearching = false;
+                return RedirectToAction("All", "Home");
+            }
+
+            SearchIndicator.searchCondition = value;
+            SearchIndicator.isSearching = true;
+
+            return RedirectToAction("All", "Home");
         }
 
         public IActionResult Privacy()

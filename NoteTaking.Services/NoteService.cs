@@ -44,7 +44,16 @@ namespace NoteTaking.Services
             return notesToPrint;
         }
 
-        public List<Note> Sort(string sortOption, List<Note> notes)
+        public List<NoteAllViewModel> SearchNotesByTitle(string? value)
+        {
+            var notes = _context.Notes
+                .Where(n => n.Title.ToLower().Contains(value.ToLower()) && n.IsDeleted == false)
+                .ToList();
+
+            return ProjectNotesForPrint(notes);
+        }
+
+        public List<NoteAllViewModel> Sort(string sortOption, List<NoteAllViewModel> notes)
         {
             if (sortOption == "Latest")
             {

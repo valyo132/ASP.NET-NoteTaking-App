@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "NoteTaking.Web.ViewModels/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/NoteTaking.Web.ViewModels.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/NoteTaking.Web.ViewModels.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "NoteTaking.Web.ViewModels/1.0.0": {
+      "type": "project",
+      "path": "../NoteTaking.Web.ViewModels/NoteTaking.Web.ViewModels.csproj",
+      "msbuildProject": "../NoteTaking.Web.ViewModels/NoteTaking.Web.ViewModels.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "NoteTaking.Web.ViewModels >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Valentin Markov\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web.ViewModels\\NoteTaking.Web.ViewModels.csproj": {
+              "projectPath": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web.ViewModels\\NoteTaking.Web.ViewModels.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

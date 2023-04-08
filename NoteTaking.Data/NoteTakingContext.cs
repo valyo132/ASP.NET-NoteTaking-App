@@ -1,9 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using NoteTaking.Data.Models;
 
 namespace NoteTaking.Data
 {
-    public class NoteTakingContext : DbContext
+    public class NoteTakingContext : IdentityDbContext
     {
         public NoteTakingContext()
         {
@@ -17,5 +18,11 @@ namespace NoteTaking.Data
         }
 
         public virtual DbSet<Note> Notes { get; set; } = null!;
+        public virtual DbSet<ApplicationUser> ApplicationUsers { get; set; } = null!;
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
     }
 }

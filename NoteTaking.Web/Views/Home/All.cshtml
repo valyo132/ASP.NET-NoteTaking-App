@@ -24,13 +24,16 @@
                 <label>Sorted by: @SelectSortBoxInput._sortOption</label>
             </div>
         </form>
-        <form asp-action="Search" asp-controller="Home">
-            <input type="text" name="value" required/>
-            <input type="submit" value="Search" class="create-button" />
-        </form>
-        <form asp-action="Search" asp-controller="Home">
-            <input type="submit" name="flag" value="Show all" class="create-button" style="margin-left: 10px;" />
-        </form>
+        <div class="search-box">
+            <form asp-action="Search" asp-controller="Home" style="display:inline-block;">
+                <input type="text" name="value" required />
+                <input type="submit" value="Search" class="create-button" />
+            </form>
+            <form asp-action="Search" asp-controller="Home" style="display:inline-block;">
+                <input type="submit" name="flag" value="Show all" class="create-button" style="margin-left: 5px;" />
+            </form>
+        </div>
+
     </div>
     <br />
     @if (Model.Any())

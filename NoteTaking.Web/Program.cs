@@ -3,6 +3,9 @@ using NoteTaking.Data;
 using NoteTaking.Services;
 using NoteTaking.Services.Interfaces;
 using NoteTaking.Services.Mapping;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using NoteTaking.Web.Common;
 
 namespace NoteTaking.Web;
 public class Program
@@ -13,10 +16,13 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        builder.Services.AddRazorPages();
 
         var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
         builder.Services.AddDbContext<NoteTakingContext>(opt =>
             opt.UseSqlServer(connectionString));
+        builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders()
+                .AddEntityFrameworkStores<NoteTakingContext>();
 
         builder.Services.AddAutoMapper(cfg =>
         {
@@ -24,6 +30,7 @@ public class Program
         });
 
         builder.Services.AddTransient<INoteService, NoteService>();
+        builder.Services.AddSingleton<IEmailSender, EmailSender>();
 
         var app = builder.Build();
 
@@ -39,9 +46,10 @@ public class Program
         app.UseStaticFiles();
 
         app.UseRouting();
+        app.UseAuthentication();
 
         app.UseAuthorization();
-
+        app.MapRazorPages();
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");

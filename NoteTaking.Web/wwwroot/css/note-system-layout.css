@@ -81,3 +81,8 @@
 .note-system-top{
     display: flex;
 }
+
+.search-box{
+    align-self: flex-start;
+    margin-left: auto;
+}

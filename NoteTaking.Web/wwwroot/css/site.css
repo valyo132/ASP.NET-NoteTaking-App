@@ -15,4 +15,13 @@ html {
 
 body {
   margin-bottom: 60px;
+  padding-top: 60px;
+}
+
+.header-top{
+    height:100px;
+    width: 100%;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
 }

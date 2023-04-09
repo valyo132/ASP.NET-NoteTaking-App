@@ -17,6 +17,10 @@ namespace NoteTaking.Web.Controllers
         {
             _noteService = noteService;
         }
+        public IActionResult HomePage()
+        {
+            return View();
+        }
 
         public IActionResult Index()
         {
@@ -24,14 +28,14 @@ namespace NoteTaking.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(NoteInputViewModel obj)
+        public IActionResult HomePage(NoteInputViewModel obj)
         {
             if (ModelState.IsValid)
             {
                 _noteService.Create(obj);
                 TempData["success"] = "The note has been created!";
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("HomePage", "Home");
             }
 
             return View(obj);

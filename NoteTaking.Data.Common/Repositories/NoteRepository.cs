@@ -16,10 +16,10 @@ namespace NoteTaking.Data.Common.Repositories
             _context = context;
         }
 
-        public void Create(NoteInputViewModel obj)
+        public void Create(NoteInputViewModel obj, ApplicationUser user)
         {
             Note note = _mapper.Map<Note>(obj);
-            _context.Notes.Add(note);
+            user.Notes.Add(note);
             _context.SaveChanges();
         }
 
@@ -53,10 +53,15 @@ namespace NoteTaking.Data.Common.Repositories
             _context.SaveChanges();
         }
 
-        public IList<Note> GetAllDeletedNotes()
-             => _context.Notes.Where(n => n.IsDeleted == true).ToList();
+        public IList<Note> GetAllDeletedNotes(ApplicationUser user)
+             => user.Notes.Where(n => n.IsDeleted == true).ToList();
 
-        public IList<Note> GetAllNotes()
-            => _context.Notes.Where(n => n.IsDeleted == false).ToList();
+        public IList<Note> GetAllNotes(ApplicationUser user)
+        {
+            var usersNotes = user.Notes;
+            return usersNotes.Where(n => n.IsDeleted == false).ToList();
+
+            //return _context.Notes.Where(n => n.IsDeleted == false).ToList();
+        }
     }
 }

@@ -30,6 +30,7 @@ public class Program
         });
 
         builder.Services.AddTransient<INoteService, NoteService>();
+        builder.Services.AddTransient<IUserService, UserService>();
         builder.Services.AddSingleton<IEmailSender, EmailSender>();
 
         var app = builder.Build();

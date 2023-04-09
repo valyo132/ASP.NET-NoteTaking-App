@@ -44,9 +44,9 @@ namespace NoteTaking.Services
             return notesToPrint;
         }
 
-        public List<NoteAllViewModel> SearchNotesByTitle(string? value)
+        public List<NoteAllViewModel> SearchNotesByTitle(string? value, IList<Note> avalableNotes)
         {
-            var notes = _context.Notes
+            var notes = avalableNotes
                 .Where(n => n.Title.ToLower().Contains(value.ToLower()) && n.IsDeleted == false)
                 .ToList();
 

@@ -235,6 +235,7 @@ namespace NoteTaking.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("ApplicationUserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Date")
@@ -328,9 +329,13 @@ namespace NoteTaking.Data.Migrations
 
             modelBuilder.Entity("NoteTaking.Data.Models.Note", b =>
                 {
-                    b.HasOne("NoteTaking.Data.Models.ApplicationUser", null)
+                    b.HasOne("NoteTaking.Data.Models.ApplicationUser", "ApplicationUser")
                         .WithMany("Notes")
-                        .HasForeignKey("ApplicationUserId");
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("NoteTaking.Data.Models.ApplicationUser", b =>

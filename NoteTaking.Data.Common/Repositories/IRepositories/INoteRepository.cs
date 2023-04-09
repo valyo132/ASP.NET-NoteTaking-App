@@ -5,7 +5,7 @@ namespace NoteTaking.Data.Common.Repositories.IRepositories
 {
     public interface INoteRepository
     {
-        void Create(NoteInputViewModel obj);
+        void Create(NoteInputViewModel obj, ApplicationUser user);
 
         void Delete(int? id);
 
@@ -15,7 +15,7 @@ namespace NoteTaking.Data.Common.Repositories.IRepositories
 
         void Restore(int? id);
 
-        IList<Note> GetAllNotes();
-        IList<Note> GetAllDeletedNotes();
+        IList<Note> GetAllNotes(ApplicationUser user);
+        IList<Note> GetAllDeletedNotes(ApplicationUser user);
     }
 }

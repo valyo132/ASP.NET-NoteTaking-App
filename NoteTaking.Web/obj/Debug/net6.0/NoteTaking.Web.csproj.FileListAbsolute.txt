@@ -575,3 +575,4 @@ G:\ASP.NET-NoteTaking-App\NoteTaking.Web\bin\Debug\net6.0\System.Diagnostics.Dia
 G:\ASP.NET-NoteTaking-App\NoteTaking.Web\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.UI.dll
 G:\ASP.NET-NoteTaking-App\NoteTaking.Web\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Embedded.dll
 G:\ASP.NET-NoteTaking-App\NoteTaking.Web\obj\Debug\net6.0\NoteTaking.Web.MvcApplicationPartsAssemblyInfo.cs
+G:\ASP.NET-NoteTaking-App\NoteTaking.Web\bin\Debug\net6.0\Microsoft.AspNet.Identity.Core.dll

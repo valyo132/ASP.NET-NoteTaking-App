@@ -12,6 +12,6 @@ namespace NoteTaking.Services.Interfaces
 
         List<NoteAllViewModel> ProjectNotesForPrint(List<Note> notes);
 
-        List<NoteAllViewModel> SearchNotesByTitle(string? value);
+        List<NoteAllViewModel> SearchNotesByTitle(string? value, IList<Note> notes);
     }
 }

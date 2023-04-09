@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NoteTaking.Data.Models
 {
@@ -18,5 +19,9 @@ namespace NoteTaking.Data.Models
         public bool IsDeleted { get; set; } = false;
 
         public DateTime Date { get; set; } = DateTime.Now;
+
+        [ForeignKey(nameof(ApplicationUser))]
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

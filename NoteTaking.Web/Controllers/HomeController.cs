@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using NoteTaking.Data.Models;
 using NoteTaking.Services.Interfaces;
 using NoteTaking.Web.Common;
 using NoteTaking.Web.Models;
 using NoteTaking.Web.ViewModels;
 using System.Diagnostics;
+using Microsoft.AspNet.Identity;
 using System.Text.RegularExpressions;
 
 namespace NoteTaking.Web.Controllers
@@ -12,10 +14,12 @@ namespace NoteTaking.Web.Controllers
     public class HomeController : Controller
     {
         private readonly INoteService _noteService;
+        private readonly IUserService _userService;
 
-        public HomeController(INoteService noteService)
+        public HomeController(INoteService noteService, IUserService userService)
         {
             _noteService = noteService;
+            _userService = userService;
         }
         public IActionResult HomePage()
         {
@@ -32,7 +36,8 @@ namespace NoteTaking.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                _noteService.Create(obj);
+                var user = GetCurrentUser();
+                _noteService.Create(obj, user);
                 TempData["success"] = "The note has been created!";
 
                 return RedirectToAction("HomePage", "Home");
@@ -44,15 +49,17 @@ namespace NoteTaking.Web.Controllers
         public IActionResult All(string? sortOption)
         {
             var notes = new List<NoteAllViewModel>();
+            var user = GetCurrentUser();
+            var allNotes = _noteService.GetAllNotes(user);
 
             if (SearchIndicator.isSearching)
             {
                 string searchOperation = SearchIndicator.searchCondition;
-                notes = _noteService.SearchNotesByTitle(searchOperation);
+                notes = _noteService.SearchNotesByTitle(searchOperation, allNotes);
             }
             else
             {
-                var allNotes = _noteService.GetAllNotes();
+                //var allNotes = _noteService.GetAllNotes(user);
                 notes = _noteService.ProjectNotesForPrint(allNotes.ToList());
             }
 
@@ -66,15 +73,16 @@ namespace NoteTaking.Web.Controllers
 
         public IActionResult AllDeletedNotes(int? id)
         {
+            var user = GetCurrentUser();
+
             if (id != null)
             {
-                // Restore
                 _noteService.Restore(id);
 
                 TempData["success"] = "The note has been restored!";
             }
 
-            var deletedNotes = _noteService.GetAllDeletedNotes();
+            var deletedNotes = _noteService.GetAllDeletedNotes(user);
             var notesToPrint = _noteService.ProjectNotesForPrint(deletedNotes.ToList());
 
             return View(notesToPrint);
@@ -139,7 +147,7 @@ namespace NoteTaking.Web.Controllers
             return View(obj);
         }
 
-        public IActionResult Search(string? value, string? flag)
+        public IActionResult Search(string value, string? flag)
         {
             if (flag == "Show all")
             {
@@ -162,6 +170,12 @@ namespace NoteTaking.Web.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        private ApplicationUser GetCurrentUser()
+        {
+            var userId = User.Identity.GetUserId();
+            return _userService.GetUserById(userId);
         }
     }
 }

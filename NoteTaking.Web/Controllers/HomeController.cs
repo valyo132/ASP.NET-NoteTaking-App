@@ -1,19 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json.Linq;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Mvc;
 using NoteTaking.Data.Models;
 using NoteTaking.Services.Interfaces;
 using NoteTaking.Web.Common;
 using NoteTaking.Web.Models;
 using NoteTaking.Web.ViewModels;
 using System.Diagnostics;
-using Microsoft.AspNet.Identity;
-using System.Text.RegularExpressions;
 
 namespace NoteTaking.Web.Controllers
 {
     public class HomeController : Controller
     {
+        /// <summary>
+        /// An instance of NoteService.
+        /// </summary>
         private readonly INoteService _noteService;
+        /// <summary>
+        /// An instance of UserService.
+        /// </summary>
         private readonly IUserService _userService;
 
         public HomeController(INoteService noteService, IUserService userService)
@@ -21,16 +25,30 @@ namespace NoteTaking.Web.Controllers
             _noteService = noteService;
             _userService = userService;
         }
-        public IActionResult HomePage()
-        {
-            return View();
-        }
 
+        /// <summary>
+        /// Get the main page of the website.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Get the home page when there is a logged in user.
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult HomePage()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Create the note for the current user.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult HomePage(NoteInputViewModel obj)
         {
@@ -46,6 +64,13 @@ namespace NoteTaking.Web.Controllers
             return View(obj);
         }
 
+
+        /// <summary>
+        /// Get all notes that the current user has.
+        /// Sorts the user's note by the type of the sort input.
+        /// </summary>
+        /// <param name="sortOption"></param>
+        /// <returns></returns>
         public IActionResult All(string? sortOption)
         {
             var notes = new List<NoteAllViewModel>();
@@ -59,7 +84,6 @@ namespace NoteTaking.Web.Controllers
             }
             else
             {
-                //var allNotes = _noteService.GetAllNotes(user);
                 notes = _noteService.ProjectNotesForPrint(allNotes.ToList());
             }
 
@@ -71,6 +95,12 @@ namespace NoteTaking.Web.Controllers
             return View(notes);
         }
 
+        /// <summary>
+        /// Gets all of the user's deleted notes.
+        /// Restore a note.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IActionResult AllDeletedNotes(int? id)
         {
             var user = GetCurrentUser();
@@ -88,6 +118,11 @@ namespace NoteTaking.Web.Controllers
             return View(notesToPrint);
         }
 
+        /// <summary>
+        /// Remove a the user's note from the list and marks it as deleted.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IActionResult Delete(int? id)
         {
             if (id == null)
@@ -99,6 +134,11 @@ namespace NoteTaking.Web.Controllers
             return RedirectToAction("All", "Home");
         }
 
+        /// <summary>
+        /// Delete the note from the database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IActionResult DeletePermanently(int? id)
         {
             if (id == null)
@@ -110,6 +150,11 @@ namespace NoteTaking.Web.Controllers
             return RedirectToAction("AllDeletedNotes", "Home");
         }
 
+        /// <summary>
+        /// Get the edit page of the note.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Edit(int? id)
         {
@@ -122,6 +167,11 @@ namespace NoteTaking.Web.Controllers
             return View(obj);
         }
 
+        /// <summary>
+        /// Edit the title and the text of the note and save it in the database.
+        /// </summary>
+        /// <param name="note"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Edit(EditNoteInputViewModel note)
         {
@@ -136,6 +186,11 @@ namespace NoteTaking.Web.Controllers
             return View(note);
         }
 
+        /// <summary>
+        /// Get the details page of the user's note.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Details(int? id)
         {
@@ -147,6 +202,12 @@ namespace NoteTaking.Web.Controllers
             return View(obj);
         }
 
+        /// <summary>
+        /// Search for notes that contains the user's input and displays them.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="flag"></param>
+        /// <returns></returns>
         public IActionResult Search(string value, string? flag)
         {
             if (flag == "Show all")
@@ -161,6 +222,10 @@ namespace NoteTaking.Web.Controllers
             return RedirectToAction("All", "Home");
         }
 
+        /// <summary>
+        /// Get the privacy page.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Privacy()
         {
             return View();
@@ -172,6 +237,10 @@ namespace NoteTaking.Web.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        /// <summary>
+        /// Get the user's account that is currently logged in in the website.
+        /// </summary>
+        /// <returns></returns>
         private ApplicationUser GetCurrentUser()
         {
             var userId = User.Identity.GetUserId();

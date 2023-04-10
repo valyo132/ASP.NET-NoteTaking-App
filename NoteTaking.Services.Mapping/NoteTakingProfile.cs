@@ -4,6 +4,9 @@ using NoteTaking.Web.ViewModels;
 
 namespace NoteTaking.Services.Mapping
 {
+    /// <summary>
+    /// AutoMapper profile
+    /// </summary>
     public class NoteTakingProfile : Profile
     {
         public NoteTakingProfile()

@@ -44,18 +44,14 @@
                     <th>#</th>
                     <th>Title</th>
                     <th>Date</th>
-                    <th width="300px"> </th>
+                    <th width="300px"></th>
                 </tr>
             </thead>
             <tbody>
                 @for (int i = 0; i < Model.Count(); i++)
                 {
                     <tr>
-                        <td>
-                            @(
-                                i + 1
-                                )
-                        </td>
+                        <td>@(i + 1)</td>
                         <td>@Model[i].Title</td>
                         <td>@Model[i].Date</td>
                         <td>

@@ -9,7 +9,13 @@ namespace NoteTaking.Services
 {
     public class NoteService : NoteRepository, INoteService
     {
+        /// <summary>
+        /// An instance of AutoMapper.
+        /// </summary>
         private readonly IMapper _mapper;
+        /// <summary>
+        /// An instance of NoteTakingContext.
+        /// </summary>
         private readonly NoteTakingContext _context;
 
         public NoteService(IMapper mapper, NoteTakingContext context) : base(mapper, context)
@@ -18,6 +24,12 @@ namespace NoteTaking.Services
             _context = context;
         }
 
+        /// <summary>
+        /// Get a note
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="id"></param>
+        /// <returns>A note mapped to T view model</returns>
         public T GetNoteViewModel<T>(int? id)
         {
             var obj = _context.Notes.Find(id);
@@ -25,6 +37,11 @@ namespace NoteTaking.Services
             return noteViewModel;
         }
 
+        /// <summary>
+        /// Projects notes to NoteAllViewModel
+        /// </summary>
+        /// <param name="notes"></param>
+        /// <returns>List of notes</returns>
         public List<NoteAllViewModel> ProjectNotesForPrint(List<Note> notes)
         {
             List<NoteAllViewModel> notesToPrint = new List<NoteAllViewModel>();
@@ -44,6 +61,12 @@ namespace NoteTaking.Services
             return notesToPrint;
         }
 
+        /// <summary>
+        /// Search a note by it's title.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="avalableNotes"></param>
+        /// <returns></returns>
         public List<NoteAllViewModel> SearchNotesByTitle(string? value, IList<Note> avalableNotes)
         {
             var notes = avalableNotes
@@ -53,6 +76,12 @@ namespace NoteTaking.Services
             return ProjectNotesForPrint(notes);
         }
 
+        /// <summary>
+        /// Sorts the application user's notes by sort contition.
+        /// </summary>
+        /// <param name="sortOption"></param>
+        /// <param name="notes"></param>
+        /// <returns></returns>
         public List<NoteAllViewModel> Sort(string sortOption, List<NoteAllViewModel> notes)
         {
             if (sortOption == "Latest")

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NoteTaking.Data.Models;
 using NoteTaking.Services.Interfaces;
@@ -39,6 +40,7 @@ namespace NoteTaking.Web.Controllers
         /// Get the home page when there is a logged in user.
         /// </summary>
         /// <returns></returns>
+        [Authorize(Roles = "Admin, Client")]
         public IActionResult HomePage()
         {
             return View();
@@ -50,6 +52,7 @@ namespace NoteTaking.Web.Controllers
         /// <param name="obj"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Admin, Client")]
         public IActionResult HomePage(NoteInputViewModel obj)
         {
             if (ModelState.IsValid)
@@ -71,6 +74,7 @@ namespace NoteTaking.Web.Controllers
         /// </summary>
         /// <param name="sortOption"></param>
         /// <returns></returns>
+        [Authorize(Roles = "Admin, Client")]
         public IActionResult All(string? sortOption)
         {
             var notes = new List<NoteAllViewModel>();
@@ -101,6 +105,7 @@ namespace NoteTaking.Web.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [Authorize(Roles = "Admin, Client")]
         public IActionResult AllDeletedNotes(int? id)
         {
             var user = GetCurrentUser();
@@ -123,6 +128,7 @@ namespace NoteTaking.Web.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [Authorize(Roles = "Admin, Client")]
         public IActionResult Delete(int? id)
         {
             if (id == null)
@@ -139,6 +145,7 @@ namespace NoteTaking.Web.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [Authorize(Roles = "Admin, Client")]
         public IActionResult DeletePermanently(int? id)
         {
             if (id == null)
@@ -156,6 +163,7 @@ namespace NoteTaking.Web.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
+        [Authorize(Roles = "Admin, Client")]
         public IActionResult Edit(int? id)
         {
             if (id == null)
@@ -173,6 +181,7 @@ namespace NoteTaking.Web.Controllers
         /// <param name="note"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Admin, Client")]
         public IActionResult Edit(EditNoteInputViewModel note)
         {
             if (ModelState.IsValid)
@@ -192,6 +201,7 @@ namespace NoteTaking.Web.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet]
+        [Authorize(Roles = "Admin, Client")]
         public IActionResult Details(int? id)
         {
             if (id == null)
@@ -208,6 +218,7 @@ namespace NoteTaking.Web.Controllers
         /// <param name="value"></param>
         /// <param name="flag"></param>
         /// <returns></returns>
+        [Authorize(Roles = "Admin, Client")]
         public IActionResult Search(string value, string? flag)
         {
             if (flag == "Show all")

@@ -13,3 +13,5 @@ G:\ASP.NET-NoteTaking-App\NoteTaking.Web.Common\obj\Debug\net6.0\ref\NoteTaking.
 G:\ASP.NET-NoteTaking-App\NoteTaking.Web.Common\bin\Debug\net6.0\NoteTaking.Web.ViewModels.dll
 G:\ASP.NET-NoteTaking-App\NoteTaking.Web.Common\bin\Debug\net6.0\NoteTaking.Web.ViewModels.pdb
 G:\ASP.NET-NoteTaking-App\NoteTaking.Web.Common\obj\Debug\net6.0\NoteTaking.Web.Common.csproj.CopyComplete
+G:\ASP.NET-NoteTaking-App\NoteTaking.Web.Common\bin\Debug\net6.0\NoteTaking.Data.Models.dll
+G:\ASP.NET-NoteTaking-App\NoteTaking.Web.Common\bin\Debug\net6.0\NoteTaking.Data.Models.pdb

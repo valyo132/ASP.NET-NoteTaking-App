@@ -381,6 +381,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Data.Models\\NoteTaking.Data.Models.csproj": {
+                "projectPath": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Data.Models\\NoteTaking.Data.Models.csproj"
+              },
               "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web.ViewModels\\NoteTaking.Web.ViewModels.csproj": {
                 "projectPath": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web.ViewModels\\NoteTaking.Web.ViewModels.csproj"
               }

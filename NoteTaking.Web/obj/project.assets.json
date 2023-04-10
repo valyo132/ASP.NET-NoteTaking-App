@@ -3803,6 +3803,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Microsoft.AspNetCore.Identity.UI": "6.0.15",
+          "NoteTaking.Data.Models": "1.0.0",
           "NoteTaking.Web.ViewModels": "1.0.0"
         },
         "compile": {

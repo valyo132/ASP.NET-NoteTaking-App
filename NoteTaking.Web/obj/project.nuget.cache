@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "KSKHMQ3d38tiUi1pkG6zS9Hw/NFVfjipxuwprqQm53UkC24mxZ//GNKxqAqeMV73G1Z4467FvByFVr7UjOX7vw==",
+  "dgSpecHash": "X92eRump4ZgfIY2rKnCQEJEyMRHaGdquYDZioAK0t580uUVs0prMVy1LU21rNDYFlXTd+/FPXrQjXe2rEcsnDg==",
   "success": true,
   "projectFilePath": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\NoteTaking.Web.csproj",
   "expectedPackageFiles": [
@@ -11,6 +11,8 @@
     "C:\\Users\\Valentin Markov\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\Valentin Markov\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
     "C:\\Users\\Valentin Markov\\.nuget\\packages\\microsoft.aspnet.identity.core\\2.2.3\\microsoft.aspnet.identity.core.2.2.3.nupkg.sha512",
+    "C:\\Users\\Valentin Markov\\.nuget\\packages\\microsoft.aspnetcore.authentication.facebook\\6.0.15\\microsoft.aspnetcore.authentication.facebook.6.0.15.nupkg.sha512",
+    "C:\\Users\\Valentin Markov\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\6.0.15\\microsoft.aspnetcore.authentication.google.6.0.15.nupkg.sha512",
     "C:\\Users\\Valentin Markov\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.15\\microsoft.aspnetcore.cryptography.internal.6.0.15.nupkg.sha512",
     "C:\\Users\\Valentin Markov\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.15\\microsoft.aspnetcore.cryptography.keyderivation.6.0.15.nupkg.sha512",
     "C:\\Users\\Valentin Markov\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.15\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.15.nupkg.sha512",

@@ -17,6 +17,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using NoteTaking.Data.Models;
+using Microsoft.EntityFrameworkCore;
+using NoteTaking.Web.Common;
+using NoteTaking.Data;
 
 namespace NoteTaking.Web.Areas.Identity.Pages.Account
 {
@@ -29,13 +33,15 @@ namespace NoteTaking.Web.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<IdentityUser> _emailStore;
         private readonly IEmailSender _emailSender;
         private readonly ILogger<ExternalLoginModel> _logger;
+        private readonly NoteTakingContext _context;
 
         public ExternalLoginModel(
             SignInManager<IdentityUser> signInManager,
             UserManager<IdentityUser> userManager,
             IUserStore<IdentityUser> userStore,
             ILogger<ExternalLoginModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            NoteTakingContext context)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -43,6 +49,7 @@ namespace NoteTaking.Web.Areas.Identity.Pages.Account
             _emailStore = GetEmailStore();
             _logger = logger;
             _emailSender = emailSender;
+            _context = context;
         }
 
         /// <summary>
@@ -84,6 +91,14 @@ namespace NoteTaking.Web.Areas.Identity.Pages.Account
             [Required]
             [EmailAddress]
             public string Email { get; set; }
+
+            [Required]
+            [Display(Name = "First name")]
+            public string FirstName { get; set; } = null!;
+
+            [Required]
+            [Display(Name = "Last name")]
+            public string LastName { get; set; } = null!;
         }
         
         public IActionResult OnGet() => RedirectToPage("./Login");
@@ -98,7 +113,8 @@ namespace NoteTaking.Web.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnGetCallbackAsync(string returnUrl = null, string remoteError = null)
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
+            //returnUrl = returnUrl ?? Url.Content("~/Home/HomePage");
+            returnUrl = Url.Content("~/Home/HomePage");
             if (remoteError != null)
             {
                 ErrorMessage = $"Error from external provider: {remoteError}";
@@ -140,7 +156,7 @@ namespace NoteTaking.Web.Areas.Identity.Pages.Account
 
         public async Task<IActionResult> OnPostConfirmationAsync(string returnUrl = null)
         {
-            returnUrl = returnUrl ?? Url.Content("~/");
+            returnUrl = returnUrl ?? Url.Content("~/Home/HomePage");
             // Get the information about the user from the external login provider
             var info = await _signInManager.GetExternalLoginInfoAsync();
             if (info == null)
@@ -155,6 +171,8 @@ namespace NoteTaking.Web.Areas.Identity.Pages.Account
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                user.FirstName = Input.FirstName;
+                user.LastName = Input.LastName;
 
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
@@ -163,6 +181,11 @@ namespace NoteTaking.Web.Areas.Identity.Pages.Account
                     if (result.Succeeded)
                     {
                         _logger.LogInformation("User created an account using {Name} provider.", info.LoginProvider);
+
+                        if (_context.ApplicationUsers.Count() == 1)
+                            await _userManager.AddToRoleAsync(user, ApplicationRole.Role_Admin);
+                        else
+                            await _userManager.AddToRoleAsync(user, ApplicationRole.Role_Client);
 
                         var userId = await _userManager.GetUserIdAsync(user);
                         var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -173,8 +196,8 @@ namespace NoteTaking.Web.Areas.Identity.Pages.Account
                             values: new { area = "Identity", userId = userId, code = code },
                             protocol: Request.Scheme);
 
-                        await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                            $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                        await _emailSender.SendEmailAsync(Input.Email, "Successful registration",
+                        $"Your registration has been complated successfully! Thank you for choosing OneNote!");
 
                         // If account confirmation is required, we need to show the link if we don't have a real email sender
                         if (_userManager.Options.SignIn.RequireConfirmedAccount)
@@ -197,11 +220,11 @@ namespace NoteTaking.Web.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private IdentityUser CreateUser()
+        private ApplicationUser CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<IdentityUser>();
+                return Activator.CreateInstance<ApplicationUser>();
             }
             catch
             {

@@ -10,6 +10,8 @@
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
           "Microsoft.AspNet.Identity.Core": "2.2.3",
+          "Microsoft.AspNetCore.Authentication.Facebook": "6.0.15",
+          "Microsoft.AspNetCore.Authentication.Google": "6.0.15",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.15",
           "Microsoft.AspNetCore.Identity.UI": "6.0.15",
           "Microsoft.EntityFrameworkCore.Design": "6.0.15",
@@ -87,6 +89,22 @@
           "lib/net45/Microsoft.AspNet.Identity.Core.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.2.3.11125"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Facebook/6.0.15": {
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {
+            "assemblyVersion": "6.0.15.0",
+            "fileVersion": "6.0.1523.12404"
+          }
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Google/6.0.15": {
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "assemblyVersion": "6.0.15.0",
+            "fileVersion": "6.0.1523.12404"
           }
         }
       },
@@ -2502,6 +2520,20 @@
       "sha512": "sha512-Mv5FpoaxspE8hlWLE4r1IdZtovg/OyFgVRhxQbx47J4sqdLImN1hnM1lnwCj+/wLmqtqFk/RYMoZ5GAcwm/00g==",
       "path": "microsoft.aspnet.identity.core/2.2.3",
       "hashPath": "microsoft.aspnet.identity.core.2.2.3.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Facebook/6.0.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-i4OaO3S6Mols94wvHPxkRVs8NGnZGUkyBbj0h6bIQllh6RICMXYN7z3FXnFDmHxYkwMnqb9CGz4As9iB7DtGuQ==",
+      "path": "microsoft.aspnetcore.authentication.facebook/6.0.15",
+      "hashPath": "microsoft.aspnetcore.authentication.facebook.6.0.15.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.Google/6.0.15": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TMcCDKPnkq7RyeLMKf5UTB2ZvDQSr1pAtUOIw7cPhXJPrN8wffCdZi8L6EPTrkv3j5DgyXybD30B9xjbZ1ulaw==",
+      "path": "microsoft.aspnetcore.authentication.google/6.0.15",
+      "hashPath": "microsoft.aspnetcore.authentication.google.6.0.15.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/6.0.15": {
       "type": "package",

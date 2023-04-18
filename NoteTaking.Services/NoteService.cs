@@ -4,6 +4,7 @@ using NoteTaking.Data.Common.Repositories;
 using NoteTaking.Data.Models;
 using NoteTaking.Services.Interfaces;
 using NoteTaking.Web.ViewModels;
+using AutoMapper.QueryableExtensions;
 
 namespace NoteTaking.Services
 {
@@ -35,6 +36,14 @@ namespace NoteTaking.Services
             var obj = _context.Notes.Find(id);
             var noteViewModel = _mapper.Map<T>(obj);
             return noteViewModel;
+        }
+
+        public List<DetailsNoteViewModel> GetNotesAsDetailed(ApplicationUser user)
+        {
+            return user.Notes
+                .AsQueryable()
+                .ProjectTo<DetailsNoteViewModel>(_mapper.ConfigurationProvider)
+                .ToList();
         }
 
         /// <summary>

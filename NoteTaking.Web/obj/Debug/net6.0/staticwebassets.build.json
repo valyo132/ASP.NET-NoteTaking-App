@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0tYoqg81xsoalXEb6A1yPtfeVGlLM/uwkFOGl48peyQ=",
+  "Hash": "tjLrubLyx3mWARpeMGrU/5nuouzpBG/h7pOv6IoOSQk=",
   "Source": "NoteTaking.Web",
   "BasePath": "_content/NoteTaking.Web",
   "Mode": "Default",
@@ -1069,6 +1069,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\NoteTaking.Web.bundle.scp.css"
+    },
+    {
+      "Identity": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\css\\homepage.css",
+      "SourceId": "NoteTaking.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\",
+      "BasePath": "_content/NoteTaking.Web",
+      "RelativePath": "css/homepage.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\homepage.css"
     },
     {
       "Identity": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\css\\note-system-layout.css",

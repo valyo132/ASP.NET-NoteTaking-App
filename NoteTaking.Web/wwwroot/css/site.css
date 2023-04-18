@@ -19,7 +19,7 @@ body {
 }
 
 .header-top{
-    height:100px;
+    height:60px;
     width: 100%;
     z-index: 9999;
     position: fixed;

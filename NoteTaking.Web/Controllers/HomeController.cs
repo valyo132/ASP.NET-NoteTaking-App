@@ -7,6 +7,7 @@ using NoteTaking.Web.Common;
 using NoteTaking.Web.Models;
 using NoteTaking.Web.ViewModels;
 using System.Diagnostics;
+using System.Reflection.Metadata.Ecma335;
 
 namespace NoteTaking.Web.Controllers
 {
@@ -25,6 +26,27 @@ namespace NoteTaking.Web.Controllers
         {
             _noteService = noteService;
             _userService = userService;
+        }
+
+        [HttpPost]
+        public IActionResult _NoteTable(NoteInputViewModel model)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult _NoteTable()
+        {
+            return View();
+        }
+
+        // Test
+        public IActionResult _HomePage()
+        {
+            var user = GetCurrentUser();
+            var notes = _noteService.GetNotesAsDetailed(user);
+
+            return View(notes);
         }
 
         /// <summary>

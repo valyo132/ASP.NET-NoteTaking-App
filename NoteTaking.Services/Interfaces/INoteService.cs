@@ -14,6 +14,8 @@ namespace NoteTaking.Services.Interfaces
         /// <returns>A note mapped to T view model</returns>
         T GetNoteViewModel<T>(int? id);
 
+        List<DetailsNoteViewModel> GetNotesAsDetailed(ApplicationUser user);
+
         /// <summary>
         /// Projects notes to NoteAllViewModel
         /// </summary>

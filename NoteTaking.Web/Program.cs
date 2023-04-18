@@ -22,6 +22,7 @@ public class Program
         var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
         builder.Services.AddDbContext<NoteTakingContext>(opt =>
             opt.UseSqlServer(connectionString));
+        
         builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<NoteTakingContext>();
 

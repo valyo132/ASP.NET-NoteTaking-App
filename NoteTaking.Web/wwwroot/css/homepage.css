@@ -1,0 +1,116 @@
+﻿.all-notes {
+    width: 320px;
+}
+
+.note-grid {
+    width: 300px;
+    height: 80px;
+    border-radius: 20px;
+    margin: 0;
+    margin-bottom: 13px;
+    padding-right: 0;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.left-side {
+    border: 0;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.open-button {
+    border: 0;
+    width: 40px;
+    height: 40px;
+}
+
+.open-button:hover {
+    cursor: pointer;
+}
+
+.note-title {
+    font-weight: bold;
+    width: 200px;
+    margin-left: 15px;
+}
+
+.note-text {
+    width: 200px;
+    margin-left: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.note-date {
+    color: rgb(49, 36, 239);
+    font-size: 12px;
+    font-weight: bold;
+    width: 200px;
+    margin-left: 15px;
+}
+
+.play-icon{
+    font-size: 50px;
+}
+
+.play-icon:hover{
+    cursor: pointer;
+}
+
+.note-body {
+    margin-left: 15px;
+    width: 1000px;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 60px 1fr;
+}
+
+.body-main {
+    height: 100%;
+    width: 100%;
+}
+
+.body-top {
+    height: 60px;
+    border-bottom: 2px solid black;
+    display: flex;
+    align-items: center;
+}
+
+.note-main-title {
+    font-size: 45px;
+    height: 60px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.note-main-text {
+    height: calc(100% - 100px - 60px);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+
+.note-main-bottom {
+    height: 60px;
+    border-top: 2px solid black;
+    display: flex;
+    align-items: center;
+}
+
+.system-grid {
+    display: flex;
+    height: 100vh;
+}

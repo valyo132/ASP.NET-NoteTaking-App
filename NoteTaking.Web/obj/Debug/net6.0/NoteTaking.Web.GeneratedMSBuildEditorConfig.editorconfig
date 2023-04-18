@@ -204,6 +204,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[G:/ASP.NET-NoteTaking-App/NoteTaking.Web/Views/Home/_HomePage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfSG9tZVBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/ASP.NET-NoteTaking-App/NoteTaking.Web/Views/Home/_NoteTable.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfTm90ZVRhYmxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/ASP.NET-NoteTaking-App/NoteTaking.Web/Views/Home/_SelectBoxView.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxfU2VsZWN0Qm94Vmlldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -26,17 +26,17 @@ public class Program
         builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<NoteTakingContext>();
 
-        builder.Services.AddAuthentication()
-            .AddFacebook(opt =>
-                 {
-                     opt.AppId = "611225427227770";
-                     opt.AppSecret = "31b24a97fea9b15550de1349763d0847";
-                 })
-            .AddGoogle(opt =>
-                 {
-                     opt.ClientId = "485652637814-pa7eiqsp52oui4l7vbudgpdp5n4ccc95.apps.googleusercontent.com";
-                     opt.ClientSecret = "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";
-                 });
+        //builder.Services.AddAuthentication()
+        //    .AddFacebook(opt =>
+        //         {
+        //             opt.AppId = "611225427227770";
+        //             opt.AppSecret = "31b24a97fea9b15550de1349763d0847";
+        //         })
+        //    .AddGoogle(opt =>
+        //         {
+        //             opt.ClientId = "485652637814-pa7eiqsp52oui4l7vbudgpdp5n4ccc95.apps.googleusercontent.com";
+        //             opt.ClientSecret = "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";
+        //         });
 
         builder.Services.AddAutoMapper(cfg =>
         {

@@ -1,0 +1,36 @@
+﻿@using Newtonsoft.Json;
+@using NoteTaking.Web.ViewModels;
+@model List<DetailsNoteViewModel>
+
+<div class="system-grid">
+    <form>
+        <div class="all-notes">
+            @foreach (var item in Model)
+            {
+                <div style="display: inline-block;">
+                    <div class="note-grid">
+                        <div class="left-side">
+                            <input asp-action="OpenNote" asp-controller="Home" asp-route-id="@item.Id" class="open-button" type="submit" value="">
+                        </div>
+                        <div>
+                            <div class="note-title">
+                                @item.Title
+                            </div>
+                            <div class="note-text">
+                                @item.Text
+                            </div>
+                            <div class="note-date">
+                                @item.Date
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </form>
+    @{
+        string noteJson = TempData["MyNote"] as string;
+        DetailsNoteViewModel note = JsonConvert.DeserializeObject<DetailsNoteViewModel>(noteJson);
+    }
+    @Html.Partial("_Notes", note);
+</div>

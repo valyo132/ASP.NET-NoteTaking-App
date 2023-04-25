@@ -1,66 +1,104 @@
 ﻿body {
-    /*position:relative;*/
-    height: 600px;
-    display: flex;
-    justify-content: center;
-}
-
-.all-notes-system{
-    margin-top:30px;
-}
-
-.note-system-body {
-    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
-.note-system {
-    /*border: 1px solid;
-    border-radius:10px;*/
-    height:500px;
-    width: 600px;
+.notepage-system {
+    background-color: white;
+    width: 1200px;
+    height: 600px;
+    margin: auto;
+    margin-top: 20px;
+    border: 0px solid black;
+    border-radius: 15px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-.note-system-buttons{
-    width:600px;
-    display:flex;
-    justify-content:space-evenly;
+.title-box {
+    margin-top: 10px;
+    width: 100%;
+    height: 60px;
+    border-radius: 15px;
+    position: relative;
 }
 
-.text-input{
-    width:450px;
-    margin:auto;
+.title-input {
+    font-weight: bold;
+    font-size: 30px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    position: absolute;
+    left: 0;
+    padding-left: 10px;
 }
 
-.text-area {
-    height:320px;
-    width: 450px;
+.text-box {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    position: relative;
 }
 
-.title-input{
-    width:450px;
-    margin:auto;
+.text-input {
+    font-size: 18px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    line-height: 40px;
+    vertical-align: top;
+    resize: none;
+    padding-left: 8px;
 }
 
-.create-button{
-    background-color:royalblue;
-    color:white;
-    width:80px;
-    height:35px;
-
-    border: 0;
-    border-radius:10px;
+.button-area {
+    width: 1200px;
+    height: 60px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
 }
 
-.view-all-button {
-    background-color: lightgray;
+.save-button {
+    font-size: medium;
+    font-weight: bolder;
     color: white;
-    width: 70px;
-    height: 30px;
+    height: 40px;
+    width: 130px;
     border: 0;
-    border-radius: 5px;
+    border-radius: 20px;
+    background-color: rgb(184, 82, 184);
+}
+
+    .save-button:hover {
+        cursor: pointer;
+    }
+
+    .save-button:active {
+        opacity: 0.8;
+    }
+
+.notelist-button {
+    font-size: medium;
+    font-weight: bolder;
+    color: white;
+    height: 40px;
+    width: 130px;
+    margin-left: 70px;
+    border: 0;
+    border-radius: 20px;
+    background-color: rgb(158, 155, 158);
 }
 
 .buttons-grid{

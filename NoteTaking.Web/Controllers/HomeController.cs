@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using NoteTaking.Data.Models;
 using NoteTaking.Services.Interfaces;
 using NoteTaking.Web.Common;
@@ -28,20 +29,18 @@ namespace NoteTaking.Web.Controllers
             _userService = userService;
         }
 
-        [HttpPost]
-        public IActionResult _NoteTable(NoteInputViewModel model)
+        // Test
+        public IActionResult OpenNote(int id)
         {
-            return View();
-        }
+            var note = _noteService.GetNoteViewModel<DetailsNoteViewModel>(id);
+            string noteJson = JsonConvert.SerializeObject(note);
+            TempData["MyNote"] = noteJson;
 
-        [HttpGet]
-        public IActionResult _NoteTable()
-        {
-            return View();
+            return RedirectToAction("SecondHomePage", "Home");
         }
 
         // Test
-        public IActionResult _HomePage()
+        public IActionResult SecondHomePage()
         {
             var user = GetCurrentUser();
             var notes = _noteService.GetNotesAsDetailed(user);
@@ -55,6 +54,11 @@ namespace NoteTaking.Web.Controllers
         /// <returns></returns>
         public IActionResult Index()
         {
+            if (GetCurrentUser() != null)
+            {
+                return RedirectToAction("HomePage", "Home");
+            }
+
             return View();
         }
 

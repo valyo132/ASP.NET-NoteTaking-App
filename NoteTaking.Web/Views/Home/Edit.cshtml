@@ -6,29 +6,23 @@
 
 <partial name="_Notifications" />
 
-<div class="note-system-body">
-    <form method="post">
-        <div class="note-system">
-            <div class="title-input">
-                <label asp-for="Title" style="display:block" class="title-input">Title</label>
-                <input asp-action="Index" asp-controller="Home" asp-for="Title" class="title-input" />
-                <br />
-                <span asp-validation-for="Title" style="color:red"></span>
-            </div>
-            <div class="text-input">
-                <label asp-for="Text" style="display:block">Text</label>
-                <textarea asp-action="Index" asp-controller="Home" asp-for="Text" class="text-area"></textarea>
-                <br />
-                <span asp-validation-for="Text" style="color:red"></span>
-            </div>
-            <br />
-            <div class="note-system-buttons">
-                <input type="submit" asp-action="Edit" asp-controller="Home" value="Edit note" class="btn btn-primary" />
-                <button type="submit" formnovalidate asp-action="All" asp-controller="Home" class="btn btn-secondary">Back to list</button>
-            </div>
+<form method="post">
+    <div class="notepage-system">
+        <div class="title-box">
+            <input asp-action="HomePage" asp-controller="Home" asp-for="Title" class="title-input" type="text" placeholder="Title...">
         </div>
-    </form>
-</div>
+        <br />
+        <div class="text-box">
+            <textarea asp-action="HomePage" asp-controller="Home" asp-for="Text" class="text-input" type="text" placeholder="Content..."></textarea>
+            <span asp-validation-for="Text" style="color:red"></span>
+            <span asp-validation-for="Title" style="color:red"></span>
+        </div>
+    </div>
+    <div class="button-area">
+        <input type="submit" asp-action="Edit" asp-controller="Home" value="Edit note" class="save-button" />
+        <input asp-action="All" asp-controller="Home" formnovalidate type="submit" value="Back to list" class="notelist-button">
+    </div>
+</form>
 
 
 @section Scripts{

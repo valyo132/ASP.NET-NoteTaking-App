@@ -1,0 +1,26 @@
+﻿@using NoteTaking.Web.ViewModels;
+@model DetailsNoteViewModel
+
+@if (Model?.Title != null)
+{
+    <div class="note-body">
+        <div class="body-top">
+            @Model.Title
+        </div>
+        <div class="body-main">
+            <div class="note-main-title">
+                @Model.Title
+            </div>
+            <div class="note-main-text">
+                @Model.Text
+            </div>
+            <div class="note-main-bottom">
+                @Model.Date
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <h2>Null</h2>
+}

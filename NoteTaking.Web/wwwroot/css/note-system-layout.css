@@ -5,6 +5,15 @@
     flex-direction: column;
 }
 
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.dropdown-toggle {
+    border: 0;
+    background-color: transparent;
+}
+
 .notepage-system {
     background-color: white;
     width: 1200px;
@@ -123,4 +132,43 @@
 .search-box{
     align-self: flex-start;
     margin-left: auto;
+}
+
+
+
+
+
+.note-box {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 200px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.note-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.note-text {
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 1.2;
+    max-height: 110px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.note-date {
+    font-size: 12px;
+    color: #777;
+    text-align: right;
 }

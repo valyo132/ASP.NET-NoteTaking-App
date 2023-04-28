@@ -62,20 +62,32 @@
                     </div>*@
 
                             <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Options
-                                    </button>
-                                    <ul class="dropdown-menu">
+                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                </button>
+                                <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="@Url.Action("Delete", "Home", new { id = Model[i].Id })">Delete</a></li>
                                     <li><a class="dropdown-item" href="@Url.Action("Edit", "Home", new { id = Model[i].Id })">Edit</a></li>
                                     <li><a class="dropdown-item" href="@Url.Action("Details", "Home", new { id = Model[i].Id })">Details</a></li>
-                                    </ul>
+                                </ul>
                             </div>
                         </td>
                     </tr>
+
+                    <div class="note">
+                        <h3 class="note-title">@Model[i].Title</h3>
+                        <p class="note-text">snirgiaenivsnigugbivisuirgveievdrinhnavsrv</p>
+                        <span class="note-date">@Model[i].Date</span>
+                    </div>
                 }
             </tbody>
         </table>
+
+        <div class="note">
+            <h3 class="note-title">Title</h3>
+            <p class="note-text">snirgiaenivsnigugbivisuirgveievdrinhnavsrv</p>
+            <span class="note-date">Some Date</span>
+        </div>
     }
     else
     {

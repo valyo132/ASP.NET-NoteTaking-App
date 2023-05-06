@@ -19,7 +19,7 @@ public class Program
         builder.Services.AddControllersWithViews();
         builder.Services.AddRazorPages();
 
-        var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+        var connectionString = builder.Configuration.GetConnectionString("DockerConnection");
         builder.Services.AddDbContext<NoteTakingContext>(opt =>
             opt.UseSqlServer(connectionString));
         

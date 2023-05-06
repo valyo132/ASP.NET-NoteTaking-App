@@ -138,37 +138,29 @@
 
 
 
-.note-box {
-    display: flex;
-    flex-direction: column;
-    width: 300px;
-    height: 200px;
-    border: 1px solid #ccc;
-    padding: 10px;
-    box-sizing: border-box;
+.note {
+    width: 200px;
+    height: 220px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px black;
+
+    position: relative;
 }
 
-.note-title {
+.title {
+    display: inline-block;
+    width: calc(100% - 50px);
     font-weight: bold;
-    margin-bottom: 10px;
-    font-size: 16px;
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-left: 5px;
 }
 
-.note-text {
-    white-space: pre-wrap;
-    overflow-wrap: break-word;
-    word-break: break-word;
-    hyphens: auto;
-    margin-bottom: 10px;
-    font-size: 14px;
-    line-height: 1.2;
-    max-height: 110px;
-    overflow: hidden;
-    flex-shrink: 0;
+.content {
+    
 }
 
-.note-date {
-    font-size: 12px;
-    color: #777;
-    text-align: right;
+.date {
+    position: absolute;
+    bottom: 0px;
 }

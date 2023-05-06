@@ -73,20 +73,24 @@
                             </div>
                         </td>
                     </tr>
-
-                    <div class="note">
-                        <h3 class="note-title">@Model[i].Title</h3>
-                        <p class="note-text">snirgiaenivsnigugbivisuirgveievdrinhnavsrv</p>
-                        <span class="note-date">@Model[i].Date</span>
-                    </div>
                 }
             </tbody>
         </table>
 
         <div class="note">
-            <h3 class="note-title">Title</h3>
-            <p class="note-text">snirgiaenivsnigugbivisuirgveievdrinhnavsrv</p>
-            <span class="note-date">Some Date</span>
+            <p class="title">Title</p>
+            <div class="dropdown" style="display:inline-block;">
+                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-three-dots-vertical"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="@Url.Action("Delete", "Home")">Delete</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("Edit", "Home")">Edit</a></li>
+                    <li><a class="dropdown-item" href="@Url.Action("Details", "Home")">Details</a></li>
+                </ul>
+            </div>
+            <p class="content">Note contect is here Note contect is here Note contect is here Note contect is here</p>
+            <p class="date">10.10.2004</p>
         </div>
     }
     else

@@ -54,10 +54,10 @@
                                         <i class="bi bi-three-dots-vertical"></i>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="@Url.Action("Delete", "Home", new { id = pinnedNotes[i].Id })">Delete</a></li>
-                                        <li><a class="dropdown-item" href="@Url.Action("Edit", "Home", new { id = pinnedNotes[i].Id })">Edit</a></li>
-                                        <li><a class="dropdown-item" href="@Url.Action("Details", "Home", new { id = pinnedNotes[i].Id })">Details</a></li>
-                                        <li><a class="dropdown-item" href="@Url.Action("Unpinn", "Home", new { id = pinnedNotes[i].Id })">Unpinn</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Delete", "Home", new { id = pinnedNotes[i].Id })"><i class="bi bi-trash"></i> Delete</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Edit", "Home", new { id = pinnedNotes[i].Id })"><i class="bi bi-pen"></i> Edit</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Details", "Home", new { id = pinnedNotes[i].Id })"><i class="bi bi-info-circle"></i> Details</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Unpinn", "Home", new { id = pinnedNotes[i].Id })"><i class="bi bi-pin-angle"></i> Unpinn</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -85,10 +85,10 @@
                                         <i class="bi bi-three-dots-vertical"></i>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="@Url.Action("Delete", "Home", new { id = notPinnedNotes[i].Id })">Delete</a></li>
-                                        <li><a class="dropdown-item" href="@Url.Action("Edit", "Home", new { id = notPinnedNotes[i].Id })">Edit</a></li>
-                                        <li><a class="dropdown-item" href="@Url.Action("Details", "Home", new { id = notPinnedNotes[i].Id })">Details</a></li>
-                                        <li><a class="dropdown-item" href="@Url.Action("Pinn", "Home", new { id = notPinnedNotes[i].Id })">Pinn</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Delete", "Home", new { id = notPinnedNotes[i].Id })"><i class="bi bi-trash"></i> Delete</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Edit", "Home", new { id = notPinnedNotes[i].Id })"><i class="bi bi-pen"></i> Edit</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Details", "Home", new { id = notPinnedNotes[i].Id })"><i class="bi bi-info-circle"></i> Details</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Pinn", "Home", new { id = notPinnedNotes[i].Id })"><i class="bi bi-pin-angle"></i> Pinn</a></li>
                                     </ul>
                                 </div>
                             </div>

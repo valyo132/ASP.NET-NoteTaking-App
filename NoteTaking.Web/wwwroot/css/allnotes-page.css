@@ -1,0 +1,69 @@
+﻿.dropdown-toggle::after {
+    display: none !important;
+}
+
+.dropdown-toggle {
+    border: 0;
+    background-color: transparent;
+}
+
+.note-system-top {
+    display: flex;
+}
+
+.search-box {
+    align-self: flex-start;
+    margin-left: auto;
+}
+
+.allnotes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 15px;
+    row-gap: 40px;
+    margin-bottom: 40px;
+}
+
+.note {
+    display: grid;
+    grid-template-rows: 30px 1fr 20px;
+    width: 320px;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    display: inline-block;
+    width: calc(100% - 50px);
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+}
+
+.content {
+    height: 300px;
+    overflow: hidden;
+    padding: 10px;
+    margin-top: auto;
+    margin: 0;
+}
+
+.date {
+    color: blue;
+    margin-left: 15px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.custom-select {
+    margin-left: 10px;
+    background-color: #ced4da;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    border-radius: 25px;
+}

@@ -103,7 +103,7 @@ namespace NoteTaking.Web.Controllers
         [Authorize(Roles = "Admin, Client")]
         public IActionResult All(string? sortOption)
         {
-            var notes = new List<NoteAllViewModel>();
+            var notes = new List<DetailsNoteViewModel>();
             var user = GetCurrentUser();
             var allNotes = _noteService.GetAllNotes(user);
 
@@ -256,6 +256,23 @@ namespace NoteTaking.Web.Controllers
             SearchIndicator.searchCondition = value;
             SearchIndicator.isSearching = true;
 
+            return RedirectToAction("All", "Home");
+        }
+
+        /// <summary>
+        /// Pinn a note.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IActionResult Pinn(int id)
+        {
+            _noteService.Pinn(id);
+            return RedirectToAction("All", "Home");
+        }
+
+        public IActionResult Unpinn(int id)
+        {
+            _noteService.Unpinn(id);
             return RedirectToAction("All", "Home");
         }
 

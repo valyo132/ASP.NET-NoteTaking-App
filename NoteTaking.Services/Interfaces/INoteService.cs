@@ -21,7 +21,7 @@ namespace NoteTaking.Services.Interfaces
         /// </summary>
         /// <param name="notes"></param>
         /// <returns>List of notes</returns>
-        List<NoteAllViewModel> ProjectNotesForPrint(List<Note> notes);
+        List<DetailsNoteViewModel> ProjectNotesForPrint(List<Note> notes);
 
         /// <summary>
         /// Search a note by it's title.
@@ -29,13 +29,25 @@ namespace NoteTaking.Services.Interfaces
         /// <param name="value"></param>
         /// <param name="avalableNotes"></param>
         /// <returns></returns>
-        List<NoteAllViewModel> SearchNotesByTitle(string? value, IList<Note> notes);
+        List<DetailsNoteViewModel> SearchNotesByTitle(string? value, IList<Note> notes);
 
         /// <summary>
         /// Sorts the application user's notes by sort contition.
         /// </summary>
         /// <param name="sortOption"></param>
         /// <param name="notes"></param>
-        List<NoteAllViewModel> Sort(string sortOption, List<NoteAllViewModel> notes);
+        List<DetailsNoteViewModel> Sort(string sortOption, List<DetailsNoteViewModel> notes);
+
+        /// <summary>
+        /// Pinn a note.
+        /// </summary>
+        /// <param name="id"></param>
+        void Pinn(int id);
+
+        /// <summary>
+        /// Unpinn a note.
+        /// </summary>
+        /// <param name="id"></param>
+        void Unpinn(int id);
     }
 }

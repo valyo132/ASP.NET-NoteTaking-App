@@ -36,6 +36,11 @@ namespace NoteTaking.Data.Models
         public DateTime Date { get; set; } = DateTime.Now;
 
         /// <summary>
+        /// Is note pinned.
+        /// </summary>
+        public bool IsPinned { get; set; } = false;
+
+        /// <summary>
         /// Application user
         /// </summary>
         [ForeignKey(nameof(ApplicationUser))]

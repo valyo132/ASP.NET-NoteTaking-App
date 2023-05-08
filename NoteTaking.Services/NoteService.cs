@@ -51,17 +51,19 @@ namespace NoteTaking.Services
         /// </summary>
         /// <param name="notes"></param>
         /// <returns>List of notes</returns>
-        public List<NoteAllViewModel> ProjectNotesForPrint(List<Note> notes)
+        public List<DetailsNoteViewModel> ProjectNotesForPrint(List<Note> notes)
         {
-            List<NoteAllViewModel> notesToPrint = new List<NoteAllViewModel>();
+            List<DetailsNoteViewModel> notesToPrint = new List<DetailsNoteViewModel>();
 
             foreach (var note in notes)
             {
-                NoteAllViewModel noteToPrint = new NoteAllViewModel()
+                DetailsNoteViewModel noteToPrint = new DetailsNoteViewModel()
                 {
                     Title = note.Title,
-                    Date = note.Date,
-                    Id = note.Id
+                    Text = note.Text,
+                    Date = note.Date.ToShortDateString(),
+                    Id = note.Id,
+                    isPinned = note.IsPinned,
                 };
 
                 notesToPrint.Add(noteToPrint);
@@ -76,7 +78,7 @@ namespace NoteTaking.Services
         /// <param name="value"></param>
         /// <param name="avalableNotes"></param>
         /// <returns></returns>
-        public List<NoteAllViewModel> SearchNotesByTitle(string? value, IList<Note> avalableNotes)
+        public List<DetailsNoteViewModel> SearchNotesByTitle(string? value, IList<Note> avalableNotes)
         {
             var notes = avalableNotes
                 .Where(n => n.Title.ToLower().Contains(value.ToLower()) && n.IsDeleted == false)
@@ -91,7 +93,7 @@ namespace NoteTaking.Services
         /// <param name="sortOption"></param>
         /// <param name="notes"></param>
         /// <returns></returns>
-        public List<NoteAllViewModel> Sort(string sortOption, List<NoteAllViewModel> notes)
+        public List<DetailsNoteViewModel> Sort(string sortOption, List<DetailsNoteViewModel> notes)
         {
             if (sortOption == "Latest")
             {
@@ -118,6 +120,28 @@ namespace NoteTaking.Services
             {
                 return notes;
             }
+        }
+
+        /// <summary>
+        /// Pinn a note.
+        /// </summary>
+        /// <param name="id"></param>
+        public void Pinn(int id)
+        {
+            Note note = GetNote(id);
+            note.IsPinned = true;
+            _context.SaveChanges();
+        }
+
+        /// <summary>
+        /// Unpinn a note.
+        /// </summary>
+        /// <param name="id"></param>
+        public void Unpinn(int id)
+        {
+            Note note = GetNote(id);
+            note.IsPinned = false;
+            _context.SaveChanges();
         }
     }
 }

@@ -5,15 +5,6 @@
     flex-direction: column;
 }
 
-.dropdown-toggle::after {
-    display: none !important;
-}
-
-.dropdown-toggle {
-    border: 0;
-    background-color: transparent;
-}
-
 .notepage-system {
     background-color: white;
     width: 1200px;
@@ -90,13 +81,13 @@
     background-color: rgb(184, 82, 184);
 }
 
-    .save-button:hover {
-        cursor: pointer;
-    }
+.save-button:hover {
+    cursor: pointer;
+}
 
-    .save-button:active {
-        opacity: 0.8;
-    }
+.save-button:active {
+    opacity: 0.8;
+}
 
 .notelist-button {
     font-size: medium;
@@ -108,59 +99,4 @@
     border: 0;
     border-radius: 20px;
     background-color: rgb(158, 155, 158);
-}
-
-.buttons-grid{
-    display:flex;
-    justify-content:space-evenly;
-}
-
-.custom-select {
-    margin-left: 10px;
-    background-color: #ced4da;
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-bottom: 8px;
-    padding-top: 8px;
-    border-radius: 25px;
-}
-
-.note-system-top{
-    display: flex;
-}
-
-.search-box{
-    align-self: flex-start;
-    margin-left: auto;
-}
-
-
-
-
-
-.note {
-    width: 200px;
-    height: 220px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 1px 1px black;
-
-    position: relative;
-}
-
-.title {
-    display: inline-block;
-    width: calc(100% - 50px);
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 5px;
-    margin-left: 5px;
-}
-
-.content {
-    
-}
-
-.date {
-    position: absolute;
-    bottom: 0px;
 }

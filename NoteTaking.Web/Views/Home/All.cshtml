@@ -1,6 +1,6 @@
 ﻿@using NoteTaking.Web.Common;
 @using NoteTaking.Web.ViewModels;
-@model List<NoteAllViewModel>
+@model List<DetailsNoteViewModel>
 @{
     ViewData["Title"] = "All";
 }
@@ -38,60 +38,67 @@
     <br />
     @if (Model.Any())
     {
-        <table class="table table-bordered table-striped" style="width:100%">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th width="300px"></th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (int i = 0; i < Model.Count(); i++)
-                {
-                    <tr>
-                        <td>@(i + 1)</td>
-                        <td>@Model[i].Title</td>
-                        <td>@Model[i].Date</td>
-                        <td>
-                            @*<div class="buttons-grid">
-                    <a class="btn btn-danger" type="submit" asp-action="Delete" asp-controller="Home" asp-route-id="@Model[i].Id"> <i class="bi bi-trash"></i> Delete</a>
-                    <a class="btn btn-warning" style="margin-left:10px; margin-right:10px" type="submit" asp-action="Edit" asp-controller="Home" asp-route-id="@Model[i].Id"> <i class="bi bi-pen"></i> Edit</a>
-                    <a class="btn btn-info" type="submit" asp-action="Details" asp-controller="Home" asp-route-id="@Model[i].Id"> <i class="bi bi-info-circle"></i> Details</a>
-                    </div>*@
-
-                            <div class="dropdown">
-                                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-three-dots-vertical"></i>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="@Url.Action("Delete", "Home", new { id = Model[i].Id })">Delete</a></li>
-                                    <li><a class="dropdown-item" href="@Url.Action("Edit", "Home", new { id = Model[i].Id })">Edit</a></li>
-                                    <li><a class="dropdown-item" href="@Url.Action("Details", "Home", new { id = Model[i].Id })">Details</a></li>
-                                </ul>
+        @if (Model.Any(n => n.isPinned))
+        {
+            {
+                var pinnedNotes = Model.Where(n => n.isPinned).ToList();
+                <h1>Pinned notes</h1>
+                <div class="allnotes-grid">
+                    @for (int i = 0; i < pinnedNotes.Count(); i++)
+                    {
+                        <div class="note">
+                            <div>
+                                <p class="title">@pinnedNotes[i].Title</p>
+                                <div class="dropdown" style="display:inline-block;">
+                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="@Url.Action("Delete", "Home", new { id = pinnedNotes[i].Id })">Delete</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Edit", "Home", new { id = pinnedNotes[i].Id })">Edit</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Details", "Home", new { id = pinnedNotes[i].Id })">Details</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Unpinn", "Home", new { id = pinnedNotes[i].Id })">Unpinn</a></li>
+                                    </ul>
+                                </div>
                             </div>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+                            <p class="content">@pinnedNotes[i].Text</p>
+                            <p class="date">@pinnedNotes[i].Date</p>
+                        </div>
+                    }
+                </div>
+            }
+        }
 
-        <div class="note">
-            <p class="title">Title</p>
-            <div class="dropdown" style="display:inline-block;">
-                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="bi bi-three-dots-vertical"></i>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="@Url.Action("Delete", "Home")">Delete</a></li>
-                    <li><a class="dropdown-item" href="@Url.Action("Edit", "Home")">Edit</a></li>
-                    <li><a class="dropdown-item" href="@Url.Action("Details", "Home")">Details</a></li>
-                </ul>
-            </div>
-            <p class="content">Note contect is here Note contect is here Note contect is here Note contect is here</p>
-            <p class="date">10.10.2004</p>
-        </div>
+        @if (Model.Any(n => !n.isPinned))
+        {
+            {
+                var notPinnedNotes = Model.Where(n => !n.isPinned).ToList();
+                <h1>Quick notes</h1>
+                <div class="allnotes-grid">
+                    @for (int i = 0; i < notPinnedNotes.Count(); i++)
+                    {
+                        <div class="note">
+                            <div>
+                                <p class="title">@notPinnedNotes[i].Title</p>
+                                <div class="dropdown" style="display:inline-block;">
+                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="@Url.Action("Delete", "Home", new { id = notPinnedNotes[i].Id })">Delete</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Edit", "Home", new { id = notPinnedNotes[i].Id })">Edit</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Details", "Home", new { id = notPinnedNotes[i].Id })">Details</a></li>
+                                        <li><a class="dropdown-item" href="@Url.Action("Pinn", "Home", new { id = notPinnedNotes[i].Id })">Pinn</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <p class="content">@notPinnedNotes[i].Text</p>
+                            <p class="date">@notPinnedNotes[i].Date</p>
+                        </div>
+                    }
+                </div>
+            }
+        }
     }
     else
     {
@@ -103,12 +110,3 @@
         </div>
     </form>
 </div>
-
-<script>
-    //$(document).on("click", ".dropdown-menu a", function (e) {
-    //    e.preventDefault();
-    //    var action = $(this).attr("href");
-    //    var id = $(this).data("id");
-    //    window.location.href = action + "/" + id;
-    //});
-</script>

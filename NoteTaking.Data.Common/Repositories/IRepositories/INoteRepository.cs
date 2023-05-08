@@ -49,5 +49,12 @@ namespace NoteTaking.Data.Common.Repositories.IRepositories
         /// <param name="user"></param>
         /// <returns></returns>
         IList<Note> GetAllNotes(ApplicationUser user);
+
+        /// <summary>
+        /// Get note by Id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Note</returns>
+        Note GetNote(int id);
     }
 }

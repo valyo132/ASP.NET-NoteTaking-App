@@ -24,5 +24,10 @@
         /// Date
         /// </summary>
         public string Date { get; set; }
+
+        /// <summary>
+        /// Is note pinned.
+        /// </summary>
+        public bool isPinned { get; set; }
     }
 }

@@ -98,5 +98,15 @@ namespace NoteTaking.Data.Common.Repositories
             var usersNotes = user.Notes;
             return usersNotes.Where(n => n.IsDeleted == false).ToList();
         }
+
+        /// <summary>
+        /// Get note by Id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Note</returns>
+        public Note GetNote(int id)
+        {
+            return _context.Notes.Find(id);
+        }
     }
 }

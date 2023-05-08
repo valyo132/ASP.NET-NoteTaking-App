@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XYfhdS68fW3y0LlGv8fUm/be9wrigW6xEJyK0tupT6w=",
+  "Hash": "7OgEuy+fhWBFbk2S3WFWLsA6On9zWq47Uba2jvflK7A=",
   "Source": "NoteTaking.Web",
   "BasePath": "_content/NoteTaking.Web",
   "Mode": "Default",
@@ -1086,6 +1086,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\allnotes-page.css"
+    },
+    {
+      "Identity": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\css\\general.css",
+      "SourceId": "NoteTaking.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\",
+      "BasePath": "_content/NoteTaking.Web",
+      "RelativePath": "css/general.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\general.css"
     },
     {
       "Identity": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\css\\homepage.css",

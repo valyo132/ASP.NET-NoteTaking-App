@@ -7,106 +7,116 @@
 
 <partial name="_Notifications" />
 
-<br />
-<div class="all-notes-system">
-    <div class="note-system-top">
-        <form style="display:inline-block">
-            <input type="submit" class="create-button" asp-action="HomePage" asp-controller="Home" value="Go back" />
+<div class="container">
+    <div class="sidebar">
+        <h1>Logo here</h1>
+        <hr>
+        <form>
+            <button class="create-note" asp-action="HomePage" asp-controller="Home">Add note</button>
         </form>
-        <form method="get" asp-action="All" asp-controller="Home" style="display:inline-block">
-            <div class="custom-select">
-                <select id="sortOption" name="sortOption" onchange="this.form.submit()">
-                    <option value="None">Select sort</option>
-                    <option value="Latest">Latest</option>
-                    <option value="Oldest">Oldest</option>
-                    <option value="Title">Title</option>
-                </select>
-                <label>Sorted by: @SelectSortBoxInput._sortOption</label>
+    </div>
+
+    <br />
+    <div class="all-notes-system">
+        <div class="note-system-top">
+            <form style="display:inline-block">
+                <input type="submit" class="create-button" asp-action="HomePage" asp-controller="Home" value="Go back" />
+            </form>
+            <form method="get" asp-action="All" asp-controller="Home" style="display:inline-block">
+                <div class="custom-select">
+                    <select id="sortOption" name="sortOption" onchange="this.form.submit()">
+                        <option value="None">Select sort</option>
+                        <option value="Latest">Latest</option>
+                        <option value="Oldest">Oldest</option>
+                        <option value="Title">Title</option>
+                    </select>
+                    <label>Sorted by: @SelectSortBoxInput._sortOption</label>
+                </div>
+            </form>
+            <div class="search-box">
+                <form asp-action="Search" asp-controller="Home" style="display:inline-block;">
+                    <input type="text" name="value" required />
+                    <input type="submit" value="Search" class="create-button" />
+                </form>
+                <form asp-action="Search" asp-controller="Home" style="display:inline-block;">
+                    <input type="submit" name="flag" value="Show all" class="create-button" style="margin-left: 5px;" />
+                </form>
+            </div>
+
+        </div>
+        <br />
+        @if (Model.Any())
+        {
+            @if (Model.Any(n => n.isPinned))
+            {
+                {
+                    var pinnedNotes = Model.Where(n => n.isPinned).ToList();
+                    <h1><i class="bi bi-journal-bookmark-fill"></i> Pinned notes</h1>
+                    <div class="allnotes-grid">
+                        @for (int i = 0; i < pinnedNotes.Count(); i++)
+                        {
+                            <div class="note">
+                                <div>
+                                    <p class="title">@pinnedNotes[i].Title</p>
+                                    <div class="dropdown" style="display:inline-block;">
+                                        <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="@Url.Action("Delete", "Home", new { id = pinnedNotes[i].Id })"><i class="bi bi-trash"></i> Delete</a></li>
+                                            <li><a class="dropdown-item" href="@Url.Action("Edit", "Home", new { id = pinnedNotes[i].Id })"><i class="bi bi-pen"></i> Edit</a></li>
+                                            <li><a class="dropdown-item" href="@Url.Action("Details", "Home", new { id = pinnedNotes[i].Id })"><i class="bi bi-info-circle"></i> Details</a></li>
+                                            <li><a class="dropdown-item" href="@Url.Action("Unpinn", "Home", new { id = pinnedNotes[i].Id })"><i class="bi bi-pin-angle"></i> Unpinn</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <p class="content">@pinnedNotes[i].Text</p>
+                                <p class="date">@pinnedNotes[i].Date</p>
+                            </div>
+                        }
+                    </div>
+                }
+            }
+
+            @if (Model.Any(n => !n.isPinned))
+            {
+                {
+                    var notPinnedNotes = Model.Where(n => !n.isPinned).ToList();
+                    <h1><i class="bi bi-journal-bookmark"></i> Quick notes</h1>
+                    <div class="allnotes-grid">
+                        @for (int i = 0; i < notPinnedNotes.Count(); i++)
+                        {
+                            <div class="note">
+                                <div>
+                                    <p class="title">@notPinnedNotes[i].Title</p>
+                                    <div class="dropdown" style="display:inline-block;">
+                                        <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="@Url.Action("Delete", "Home", new { id = notPinnedNotes[i].Id })"><i class="bi bi-trash"></i> Delete</a></li>
+                                            <li><a class="dropdown-item" href="@Url.Action("Edit", "Home", new { id = notPinnedNotes[i].Id })"><i class="bi bi-pen"></i> Edit</a></li>
+                                            <li><a class="dropdown-item" href="@Url.Action("Details", "Home", new { id = notPinnedNotes[i].Id })"><i class="bi bi-info-circle"></i> Details</a></li>
+                                            <li><a class="dropdown-item" href="@Url.Action("Pinn", "Home", new { id = notPinnedNotes[i].Id })"><i class="bi bi-pin-angle"></i> Pinn</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <p class="content">@notPinnedNotes[i].Text</p>
+                                <p class="date">@notPinnedNotes[i].Date</p>
+                            </div>
+                        }
+                    </div>
+                }
+            }
+        }
+        else
+        {
+            <h2>Oops... You don't have any notes</h2>
+        }
+        <form>
+            <div>
+                <input type="submit" value="View deleted notes" class="btn btn-info" asp-action="AllDeletedNotes" asp-controller="Home" />
             </div>
         </form>
-        <div class="search-box">
-            <form asp-action="Search" asp-controller="Home" style="display:inline-block;">
-                <input type="text" name="value" required />
-                <input type="submit" value="Search" class="create-button" />
-            </form>
-            <form asp-action="Search" asp-controller="Home" style="display:inline-block;">
-                <input type="submit" name="flag" value="Show all" class="create-button" style="margin-left: 5px;" />
-            </form>
-        </div>
-
     </div>
-    <br />
-    @if (Model.Any())
-    {
-        @if (Model.Any(n => n.isPinned))
-        {
-            {
-                var pinnedNotes = Model.Where(n => n.isPinned).ToList();
-                <h1>Pinned notes</h1>
-                <div class="allnotes-grid">
-                    @for (int i = 0; i < pinnedNotes.Count(); i++)
-                    {
-                        <div class="note">
-                            <div>
-                                <p class="title">@pinnedNotes[i].Title</p>
-                                <div class="dropdown" style="display:inline-block;">
-                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="@Url.Action("Delete", "Home", new { id = pinnedNotes[i].Id })"><i class="bi bi-trash"></i> Delete</a></li>
-                                        <li><a class="dropdown-item" href="@Url.Action("Edit", "Home", new { id = pinnedNotes[i].Id })"><i class="bi bi-pen"></i> Edit</a></li>
-                                        <li><a class="dropdown-item" href="@Url.Action("Details", "Home", new { id = pinnedNotes[i].Id })"><i class="bi bi-info-circle"></i> Details</a></li>
-                                        <li><a class="dropdown-item" href="@Url.Action("Unpinn", "Home", new { id = pinnedNotes[i].Id })"><i class="bi bi-pin-angle"></i> Unpinn</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <p class="content">@pinnedNotes[i].Text</p>
-                            <p class="date">@pinnedNotes[i].Date</p>
-                        </div>
-                    }
-                </div>
-            }
-        }
-
-        @if (Model.Any(n => !n.isPinned))
-        {
-            {
-                var notPinnedNotes = Model.Where(n => !n.isPinned).ToList();
-                <h1>Quick notes</h1>
-                <div class="allnotes-grid">
-                    @for (int i = 0; i < notPinnedNotes.Count(); i++)
-                    {
-                        <div class="note">
-                            <div>
-                                <p class="title">@notPinnedNotes[i].Title</p>
-                                <div class="dropdown" style="display:inline-block;">
-                                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="bi bi-three-dots-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="@Url.Action("Delete", "Home", new { id = notPinnedNotes[i].Id })"><i class="bi bi-trash"></i> Delete</a></li>
-                                        <li><a class="dropdown-item" href="@Url.Action("Edit", "Home", new { id = notPinnedNotes[i].Id })"><i class="bi bi-pen"></i> Edit</a></li>
-                                        <li><a class="dropdown-item" href="@Url.Action("Details", "Home", new { id = notPinnedNotes[i].Id })"><i class="bi bi-info-circle"></i> Details</a></li>
-                                        <li><a class="dropdown-item" href="@Url.Action("Pinn", "Home", new { id = notPinnedNotes[i].Id })"><i class="bi bi-pin-angle"></i> Pinn</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <p class="content">@notPinnedNotes[i].Text</p>
-                            <p class="date">@notPinnedNotes[i].Date</p>
-                        </div>
-                    }
-                </div>
-            }
-        }
-    }
-    else
-    {
-        <h2>Oops... You don't have any notes</h2>
-    }
-    <form>
-        <div>
-            <input type="submit" value="View deleted notes" class="btn btn-info" asp-action="AllDeletedNotes" asp-controller="Home" />
-        </div>
-    </form>
 </div>

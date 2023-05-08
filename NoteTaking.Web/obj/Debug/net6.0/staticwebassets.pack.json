@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\allnotes-page.css"
     },
     {
+      "Id": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\css\\general.css",
+      "PackagePath": "staticwebassets\\css\\general.css"
+    },
+    {
       "Id": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\css\\homepage.css",
       "PackagePath": "staticwebassets\\css\\homepage.css"
     },

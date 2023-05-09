@@ -54,11 +54,6 @@ namespace NoteTaking.Web.Controllers
         /// <returns></returns>
         public IActionResult Index()
         {
-            if (GetCurrentUser() != null)
-            {
-                return RedirectToAction("HomePage", "Home");
-            }
-
             return View();
         }
 

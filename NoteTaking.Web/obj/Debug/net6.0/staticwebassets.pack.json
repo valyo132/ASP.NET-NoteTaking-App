@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets\\NoteTaking.Web.bundle.scp.css"
     },
     {
-      "Id": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\css\\StyleSheet.css",
-      "PackagePath": "staticwebassets\\css\\StyleSheet.css"
-    },
-    {
       "Id": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\css\\allnotes-page.css",
       "PackagePath": "staticwebassets\\css\\allnotes-page.css"
     },

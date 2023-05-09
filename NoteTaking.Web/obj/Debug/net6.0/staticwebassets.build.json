@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7OgEuy+fhWBFbk2S3WFWLsA6On9zWq47Uba2jvflK7A=",
+  "Hash": "1KM4Pnekg8NAb+qsRYgaYOQUHPKivDH5+jUvm8OK6QI=",
   "Source": "NoteTaking.Web",
   "BasePath": "_content/NoteTaking.Web",
   "Mode": "Default",
@@ -1154,23 +1154,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
-    },
-    {
-      "Identity": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\css\\StyleSheet.css",
-      "SourceId": "NoteTaking.Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\",
-      "BasePath": "_content/NoteTaking.Web",
-      "RelativePath": "css/StyleSheet.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\StyleSheet.css"
     },
     {
       "Identity": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\favicon.ico",

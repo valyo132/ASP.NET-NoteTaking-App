@@ -1,12 +1,7 @@
-﻿.container {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 12px;
-}
-
-.all-notes-system {
+﻿.all-notes-system {
     flex: 1;
-    margin-left: 200px;
+    margin-left: 300px;
+    width: calc(100% - 310px);
 }
 
 .dropdown-toggle::after {
@@ -18,13 +13,35 @@
     background-color: transparent;
 }
 
+.undo-button {
+    font-size: 25px;
+}
+
 .note-system-top {
     display: flex;
 }
 
 .search-box {
-    align-self: flex-start;
-    margin-left: auto;
+    border-radius: 10px;
+    width: 300px;
+    height: 40px;
+}
+
+.search-button {
+    border: 0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.show-all-button {
+    font-size: 20px;
+    color: white;
+    background-color: rgb(184, 82, 184);
+    border: 0;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
 }
 
 .allnotes-grid {
@@ -71,7 +88,7 @@
 
 .custom-select {
     margin-left: 10px;
-    background-color: #ced4da;
+    background-color: #F0F0F0;
     padding-left: 12px;
     padding-right: 12px;
     padding-bottom: 8px;
@@ -79,14 +96,15 @@
     border-radius: 25px;
 }
 
+/* Sidebar */
 .sidebar {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 51px;
     width: 270px;
-    height: 100%;
+    height: 700px;
     margin-right: 15px;
-    border: 1px solid black;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.2);
 
     display: flex;
     flex-direction: column;
@@ -106,4 +124,24 @@ hr {
     width: 200px;
     padding: 7px;
     border-radius: 15px;
+}
+
+.side-buttons-grid {
+    margin-top: 20px;
+    display: grid;
+    grid-template-rows: 30px;
+}
+
+.sidebar-button {
+    font-size: 17px;
+    background-color: white;
+    border: 0;
+    width: 200px;
+    height: 30px;
+    border-radius: 7px;
+}
+
+.sidebar-button:hover {
+    background-color: #F0F0F0;
+    cursor: pointer;
 }

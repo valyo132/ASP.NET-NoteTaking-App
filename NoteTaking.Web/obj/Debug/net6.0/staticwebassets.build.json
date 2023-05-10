@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1KM4Pnekg8NAb+qsRYgaYOQUHPKivDH5+jUvm8OK6QI=",
+  "Hash": "c2dg+ys5KbExFGlUrgQSitWle1bSXiUCL8w7P8mb1E0=",
   "Source": "NoteTaking.Web",
   "BasePath": "_content/NoteTaking.Web",
   "Mode": "Default",
@@ -1953,6 +1953,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
+    },
+    {
+      "Identity": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\lib\\jquery\\allNotesJquery.js",
+      "SourceId": "NoteTaking.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\",
+      "BasePath": "_content/NoteTaking.Web",
+      "RelativePath": "lib/jquery/allNotesJquery.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\jquery\\allNotesJquery.js"
     },
     {
       "Identity": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",

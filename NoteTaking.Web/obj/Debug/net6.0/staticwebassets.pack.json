@@ -249,6 +249,10 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
+      "Id": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\lib\\jquery\\allNotesJquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\allNotesJquery.js"
+    },
+    {
       "Id": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },

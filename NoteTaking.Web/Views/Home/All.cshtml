@@ -9,7 +9,6 @@
 
 <div class="sidebar">
     <h1>Logo here</h1>
-    <div id="hideSidebar">click</div>
     <hr>
     <form>
         <button class="create-note" asp-action="HomePage" asp-controller="Home">Add note</button>
@@ -123,3 +122,12 @@
         </div>
     </form>
 </div>
+
+<script>
+    $('#search-button').click(function (){
+        setTimeout(function (){
+            console.log('show');
+            ('#show-all-button').show();
+        }, 1000);
+    });
+</script>

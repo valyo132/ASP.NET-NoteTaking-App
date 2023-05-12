@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\NoteTaking.Web.bundle.scp.css"
     },
     {
+      "Id": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\css\\ProfileCss\\profile-page.css",
+      "PackagePath": "staticwebassets\\css\\ProfileCss\\profile-page.css"
+    },
+    {
       "Id": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\css\\allnotes-page.css",
       "PackagePath": "staticwebassets\\css\\allnotes-page.css"
     },
@@ -27,6 +31,14 @@
     {
       "Id": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\images\\profile picture\\5b3dfc7d-7b0f-4fe3-bf88-bb38554578bc.jpg",
+      "PackagePath": "staticwebassets\\images\\profile picture\\5b3dfc7d-7b0f-4fe3-bf88-bb38554578bc.jpg"
+    },
+    {
+      "Id": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\images\\profile picture\\92199443-091b-476a-b30c-923ae47854db.jpg",
+      "PackagePath": "staticwebassets\\images\\profile picture\\92199443-091b-476a-b30c-923ae47854db.jpg"
     },
     {
       "Id": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\js\\site.js",

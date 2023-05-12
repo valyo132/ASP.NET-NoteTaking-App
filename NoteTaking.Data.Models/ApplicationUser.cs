@@ -21,5 +21,10 @@ namespace NoteTaking.Data.Models
         /// Personal notes.
         /// </summary>
         public ICollection<Note> Notes { get; set; } = new HashSet<Note>();
+
+        /// <summary>
+        /// Profile picture.
+        /// </summary>
+        public string ProfileImageURL { get; set; }
     }
 }

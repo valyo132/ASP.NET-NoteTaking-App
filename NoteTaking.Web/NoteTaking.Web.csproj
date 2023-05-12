@@ -34,6 +34,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Identity\Data\" />
+    <Folder Include="wwwroot\images\profile picture\" />
   </ItemGroup>
 
 </Project>

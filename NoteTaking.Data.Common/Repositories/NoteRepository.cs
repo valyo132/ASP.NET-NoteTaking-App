@@ -2,6 +2,7 @@
 using NoteTaking.Data.Common.Repositories.IRepositories;
 using NoteTaking.Data.Models;
 using NoteTaking.Web.ViewModels;
+using System.Text.Encodings.Web;
 
 namespace NoteTaking.Data.Common.Repositories
 {

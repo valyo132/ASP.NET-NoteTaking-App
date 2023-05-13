@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "68U+lvJPmBhCraQzIGuPUIiCsIcJYmFtsd9s8M7Tr7c=",
+  "Hash": "dwcDW7nRzecvVshOzDncbnP87TRLdibVyZPAebXK0ps=",
   "Source": "NoteTaking.Web",
   "BasePath": "_content/NoteTaking.Web",
   "Mode": "Default",
@@ -1139,12 +1139,12 @@
       "OriginalItemSpec": "wwwroot\\css\\note-system-layout.css"
     },
     {
-      "Identity": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\css\\ProfileCss\\profile-page.css",
+      "Identity": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\css\\profile-page.css",
       "SourceId": "NoteTaking.Web",
       "SourceType": "Discovered",
       "ContentRoot": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\",
       "BasePath": "_content/NoteTaking.Web",
-      "RelativePath": "css/ProfileCss/profile-page.css",
+      "RelativePath": "css/profile-page.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1153,7 +1153,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\ProfileCss\\profile-page.css"
+      "OriginalItemSpec": "wwwroot\\css\\profile-page.css"
     },
     {
       "Identity": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\css\\site.css",

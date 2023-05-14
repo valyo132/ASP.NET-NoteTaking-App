@@ -1,6 +1,8 @@
 ﻿.all-notes-system {
     flex: 1;
-    margin-left: 300px;
+    position: absolute;
+    top: 80px;
+    left: 300px;
     width: calc(100% - 310px);
 }
 
@@ -19,6 +21,7 @@
 
 .note-system-top {
     display: flex;
+    top: 0;
 }
 
 .search-box {

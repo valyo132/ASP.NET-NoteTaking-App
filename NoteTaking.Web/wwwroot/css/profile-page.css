@@ -4,6 +4,17 @@
     box-shadow: 2px 2px 2px 3px rgb(128, 128, 128);
     display: grid;
     grid-template-columns: 1fr 1fr;
+    border-radius: 20px;
+
+    position: relative;
+}
+
+#edit-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: 0;
+    border-radius: 7px;
 }
 
 .data-info{

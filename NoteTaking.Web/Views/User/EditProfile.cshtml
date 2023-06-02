@@ -1,0 +1,37 @@
+﻿@using NoteTaking.Data.Models;
+@model ApplicationUser
+
+<div class="profile-grid">
+    <form method="post">
+        <div class="data-info">
+            <div>
+                <label>Username</label>
+                <input asp-for=UserName class="data" value="@Model.UserName" />
+            </div>
+            <div>
+                <label>First name</label>
+                <input asp-for=FirstName class="data" value="@Model.FirstName" />
+            </div>
+            <div>
+                <label>Last name</label>
+                <input asp-for=LastName class="data" value="@Model.LastName" />
+            </div>
+            <div>
+                <label>E-mail</label>
+                <input asp-for=Email class="data" value="@Model.Email" />
+            </div>
+        </div>
+        <div class="picture-info">
+            @if (Model.ProfileImageURL == null)
+            {
+                <img class="profile-pictire" src="images\profile picture\profile-icon-9.png" width="128" height="128" />
+            }
+            else
+            {
+                <img class="profile-pictire" src="@Model.ProfileImageURL" width="128" height="128" />
+            }
+            <input asp-for=ProfileImageURL type="file" />
+            <input asp-action="EditProfile" asp-controller="User" type="submit" value="Edit" />
+        </div>
+    </form>
+</div>

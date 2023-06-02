@@ -17,6 +17,16 @@
         </div>
     </div>
     <div class="picture-info">
-        <img class="profile-pictire" src="@Model.ProfileImageURL" width="128" height="128" />
+        @if (Model.ProfileImageURL == null)
+        {
+            <img class="profile-pictire" src="images\profile picture\profile-icon-9.png" width="128" height="128" />
+        }
+        else
+        {
+            <img class="profile-pictire" src="@Model.ProfileImageURL" width="128" height="128" />
+        }
     </div>
+    <form>
+        <button asp-action="EditProfile" asp-controller="User" id="edit-button">Edit profile</button>
+    </form>
 </div>

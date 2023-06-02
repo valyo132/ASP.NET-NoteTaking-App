@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dwcDW7nRzecvVshOzDncbnP87TRLdibVyZPAebXK0ps=",
+  "Hash": "kz+Yl8uvKWhDxa21jMoyqzKffZczxeTPlD+Cn0c7dD4=",
   "Source": "NoteTaking.Web",
   "BasePath": "_content/NoteTaking.Web",
   "Mode": "Default",
@@ -1222,6 +1222,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\profile picture\\92199443-091b-476a-b30c-923ae47854db.jpg"
+    },
+    {
+      "Identity": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\images\\profile picture\\profile-icon-9.png",
+      "SourceId": "NoteTaking.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\",
+      "BasePath": "_content/NoteTaking.Web",
+      "RelativePath": "images/profile picture/profile-icon-9.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\profile picture\\profile-icon-9.png"
     },
     {
       "Identity": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\js\\site.js",

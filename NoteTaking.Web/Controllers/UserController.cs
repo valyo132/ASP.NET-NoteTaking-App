@@ -24,6 +24,20 @@ namespace NoteTaking.Web.Controllers
             return View(user);
         }
 
+        [HttpGet]
+        public IActionResult EditProfile()
+        {
+            var user = GetCurrentUser();
+            return View(user);
+        }
+
+        [HttpPost]
+        public IActionResult EditProfile(ApplicationUser user)
+        {
+            // Apply changes
+            return View();
+        }
+
         private ApplicationUser GetCurrentUser()
         {
             var userId = User.Identity.GetUserId();

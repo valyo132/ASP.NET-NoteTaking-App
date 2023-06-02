@@ -41,6 +41,10 @@
       "PackagePath": "staticwebassets\\images\\profile picture\\92199443-091b-476a-b30c-923ae47854db.jpg"
     },
     {
+      "Id": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\images\\profile picture\\profile-icon-9.png",
+      "PackagePath": "staticwebassets\\images\\profile picture\\profile-icon-9.png"
+    },
+    {
       "Id": "G:\\ASP.NET-NoteTaking-App\\NoteTaking.Web\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
